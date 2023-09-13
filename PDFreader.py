@@ -13,7 +13,7 @@ def read_pdf(pdf_file):
 
 
 if __name__ == "__main__":
-    pdf_file = "legalheir.pdf"
+    pdf_file = "doc_3Trademark_Transfer_Agreement.pdf"
     text = read_pdf(pdf_file)
     print(text)
     print(re.split(r"_+", text))
