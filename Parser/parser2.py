@@ -12,24 +12,28 @@
 # hardcoding for temporary purposes (or maybe for permanant)
 cache = ["National Payment Corporation of India", "New Parsi house, Lalu Seth lane, Bhandup (W), Mumbai", "Aero & Co.", "Computer Accelerators", "18th", "January", "2023", "1986", "CPUs and GPUs"]
 
+
 from docx import Document
-import docx2txt
 
 # creating new output docx
 doc = Document()
 
-text = docx2txt.process('test.docx')
+doc = Document("test.docx")
 
-def insert_hardcoded(x):
-    for i in range(0, len(cache)):
-        x = x.replace('#' + str(i+1), cache[i])
-    print(x)
-    return x
+def replace_string(old, new):
+    
+    for p in doc.paragraphs:
+        if old in p.text:
+            inline = p.runs
+            # Loop added to work with runs (strings with same style)
+            for i in range(len(inline)):
+                if old in inline[i].text:
+                    text = inline[i].text.replace(old, new)
+                    inline[i].text = text
+            # printp.text
+    return 1
 
-# reading the template
-# document = Document('test.docx')
-
-# traverse through the document
-res = insert_hardcoded(text)
-doc.add_paragraph(res)
+for i in range(len(cache)):
+    replace_string('#' + str(i+1), cache[i])
+      
 doc.save("Output2.docx")
