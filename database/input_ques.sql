@@ -5,7 +5,7 @@ CREATE TABLE input_ques (
     ques_name VARCHAR(50)
 );
 
-INSERT INTO input_ques (ques_label, ques_type) VALUES 
+INSERT INTO input_ques (ques_id, ques_label, ques_type, ques_name) VALUES 
 (1, "Time", "time", "time"), (2, "Day", "text", "day"), (3, "Month", "text", "month"), (4, "Tenant Name", "text", "lesse"), 
 (5, "Tenant State", "text", "lesse_state"), (6, "Owner Name", "text", "lessor"), (7, "Owner State", "text", "lessor_state"), 
 (8, "Rental contract in years", "number", "lease_years"), (9, "Land Location", "text", "lease_loc"), 
