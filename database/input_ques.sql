@@ -1,6 +1,6 @@
 CREATE TABLE input_ques (
     ques_id INT PRIMARY KEY,
-    ques_label VARCHAR(50),
+    ques_label VARCHAR(150),
     ques_type VARCHAR(50),
     ques_name VARCHAR(50)
 );
@@ -25,7 +25,7 @@ INSERT INTO input_ques (ques_id, ques_label, ques_type, ques_name) VALUES
 (40, "Publisher's Name", "text", "publisher"), (41, "Publisher's Address", "text", "publisher_addr"), (42, "Book's Name", "text", "book_name"),
 (43, "Deadline for Publishing the Book in months", "number", "publish_deadline"), (44, "Royalty", "number", "royalty"), (45, "Lender's Address", "text", "lender_addr"),
 (46, "Lender's Company", "text", "lender_company"), (47, "Borrower's Company", "text", "borrower_company"), (48, "Borrower's Address", "text", "borrower_addr"),
-(49, "Amount paid as Capital", "number", "capital_paid"), (50, "Intercorporate loan amount", "number", "amount"), (51, "Days to repay the Loan", "number", "days_to_repay"), (52, "Penalised Rate of Interest", "number", "penalized_interest_rate")
+(49, "Amount paid as Capital", "number", "capital_paid"), (50, "Intercorporate loan amount", "number", "amount"), (51, "Days to repay the Loan", "number", "days_to_repay"), (52, "Penalised Rate of Interest", "number", "penalized_interest_rate"),
 (53, "Stock exchange on which the shares are listed", "number", "stock_exchange"), (54, "Price of each share", "number", "rate_per_share"),
 (55, "Number of equity shares to be given as security", "number", "no_of_share"), (56, "How often shall the Publisher submit a statement of sales to the Author", "number", "publish_report"), 
 (57, "Number of free copies to be sent to the Author", "number", "no_of_copies_to_author"), (58, "Maximum copies to be sent to the media", "number", "media_copies_limit"),
