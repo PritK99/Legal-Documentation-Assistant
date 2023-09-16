@@ -7,7 +7,7 @@ const Finalhome = () => {
 return (
     <>   
     <Home/>
-    <Footer/>
+    
     </>
 );
 

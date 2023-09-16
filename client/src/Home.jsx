@@ -78,7 +78,7 @@ function Home() {
   );
  
   return (
-    <div className="-m-6 min-h-full w-[calc(100%+50px)] overflow-x-clip ">
+    <div className="min-h-screen w-full ">
 <Navbar className="sticky top-0 z-10 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
 
         <div className="flex items-center justify-between text-blue-gray-900">
@@ -249,7 +249,7 @@ function Home() {
       </div>
       
     
-
+      <Footer/>
    
       </div>
     
