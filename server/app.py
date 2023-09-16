@@ -21,10 +21,10 @@ def services():
 # Get forms of a particular service
 @app.route('/api/forms', methods = ["GET"])
 def get_forms():
-    Service = request.json['service_name']
-    print(Service)
+    Service = request.json['service_id']                # Send json object {"service_id": "..."}
+    print(type(Service))
     cur = db.cursor()
-    cur.execute("SELECT * FROM forms WHERE service_id IN (SELECT service_id FROM services WHERE service_name = %s);", [Service])
+    cur.execute("SELECT * FROM forms WHERE service_id = %s;", [Service])
     row_headers=[x[0] for x in cur.description]
     rv = cur.fetchall()
     json_data=[]
@@ -36,9 +36,10 @@ def get_forms():
 # Get all queries for a form    
 @app.route('/api/form-details', methods = ["GET"])
 def get_form_details():
-    form_name = request.json['form_name']
+    form_id = request.json['form_id']                   # Send json object {"form_id":"..."}
+    print(form_id);
     cur = db.cursor()
-    cur.execute("SELECT * FROM input_ques WHERE q_id IN (SELECT q_id FROM form_queries WHERE form_id = (select form_id from forms where form_name = %s));", [form_name])
+    cur.execute("SELECT * FROM input_ques WHERE ques_id IN (SELECT form_query_id FROM form_queries WHERE form_id = %s);", [form_id])
     row_headers=[x[0] for x in cur.description]
     rv = cur.fetchall()
     json_data=[]
@@ -47,7 +48,21 @@ def get_form_details():
     cur.close()
     return jsonify(json_data)
 
-
+# Return the final doc
+@app.route('/api/final-form', methods = ["POST"])
+def final_form():
+    form_details = request.json                         # Under Progress 
+    form_id = form_details["form_id"]
+    print(type(form_details))
+    cur = db.cursor()
+    cur.execute("SELECT form_link FROM forms where form_id = %s;", [form_id])
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    json_data=[]
+    for result in rv:
+        json_data.append(dict(zip(row_headers,result)))
+    cur.close()
+    return jsonify(json_data);
 
 if __name__ == '__main__':
     app.run(debug=True)
