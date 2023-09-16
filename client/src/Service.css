@@ -1,0 +1,138 @@
+/* :root {
+    font-size: 20px;
+    box-sizing: inherit;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+} */
+
+p {
+    margin: 0;
+}
+
+p:not(:last-child) {
+    margin-bottom: 1em;
+
+}
+
+.outer {
+
+    top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: auto;
+        background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
+    
+}
+.right select{
+    padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: '16px';
+            width: 200px;
+}
+.right h2{
+    font-weight: bold;
+}
+.serve {
+    font: 1em/1.618 Inter, sans-serif;
+    
+    display: flex;
+    align-items: center;
+    /* justify-content: center;  */
+
+     min-height: 100vh;
+    padding: 30px;
+
+    color: #224;
+
+
+
+}
+
+.right {
+    flex: 1;
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    /* Stick to the top of the viewport */
+    width: 300px;
+    /* Set a fixed width for the right div */
+    height: 100%;
+    /* Fill the entire viewport height */
+    overflow-y: auto;
+    /* Each division takes up equal space */
+
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 140px;
+    max-width: 300px;
+    max-height: 400px;
+    /* height: 400px; */
+    margin-left: 40px;
+    margin-right: 100px;
+    border: 1px solid rgba(255, 255, 255, .25);
+
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(15px);
+    /* Background color for the 'right' division */
+}
+
+.cards {
+    margin-top: 100px;
+    height: auto;
+    
+    
+}
+
+.card {
+    flex: 1;
+    /* Each division takes up equal space */
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #e0e0e0;
+    width: 500px;
+    margin-bottom: 10px;
+
+    max-width: 300px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin-top: 100px; */
+    max-width: 500px;
+    height: 180px;
+    padding: 35px;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(15px);
+    margin-left: 450px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card-footer {
+    font-size: 0.65em;
+    color: #446;
+}
