@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
- <footer className="bg-white dark:bg-gray-900 ">
+ <footer className="bg-[#E6E6FA] dark:bg-gray-900 ">
   <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div className="lg:flex lg:items-start lg:gap-8">
       <div className="text-teal-600 dark:text-teal-300">
@@ -46,7 +46,7 @@ const Footer = () => {
                 type="email"
                 id="UserEmail"
                 placeholder="john@rhcp.com"
-                className="w-full border-none focus:border-transparent focus:ring-transparent dark:bg-gray-900 dark:text-white sm:text-sm"
+                className="w-full border-none focus:border-transparent focus:ring-transparent dark:bg-gray-900 dark:text-white sm:text-sm bg-[#E6E6FA] placeholder:text-black px-5"
               />
 
               <button
