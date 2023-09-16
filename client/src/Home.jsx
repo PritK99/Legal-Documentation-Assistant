@@ -80,7 +80,7 @@ function Home() {
 
   return (
     <div className="min-h-screen w-full ">
-      <Navbar className="sticky top-0 z-10 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
+      <Navbar className="sticky top-0 z-20 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
