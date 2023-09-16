@@ -26,7 +26,7 @@ import {
 function Home() {
  
   return (
-    <div className="min-h-screen w-[calc(100%+50px)] overflow-scroll">
+    <div className="min-h-screen ">
 <Navbar/>
        <div className="absolute inset-0 overflow-hidden">
   <video

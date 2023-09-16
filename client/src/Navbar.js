@@ -57,7 +57,7 @@ function Navbar() {
 
   return (
     
-    <MaterialNavbar className="fixed top-0 w-full z-50 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
+    <MaterialNavbar className="fixed top-[-40px] w-full z-50 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
      <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
