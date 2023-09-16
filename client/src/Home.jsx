@@ -11,6 +11,8 @@
 // export default Home
 
 import React from "react";
+import Footer from "./footer"
+
 import {
   Navbar,
   MobileNav,
@@ -76,7 +78,7 @@ function Home() {
   );
  
   return (
-    <div className="-m-6 min-h-screen w-[calc(100%+50px)] overflow-scroll">
+    <div className="-m-6 min-h-full w-[calc(100%+50px)] overflow-x-clip ">
 <Navbar className="sticky top-0 z-10 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
 
         <div className="flex items-center justify-between text-blue-gray-900">
@@ -142,7 +144,7 @@ function Home() {
           </Button>
         </MobileNav>
       </Navbar>
-       <div className="absolute inset-0 overflow-hidden">
+       <div className="absolute bg-center	 inset-0 overflow-hidden">
   <video
     autoPlay
     loop
@@ -158,7 +160,8 @@ function Home() {
   </video>
 </div>
 
-      <div className="mx-auto max-w-screen-md py-12 relative z-10">
+
+<div className="mx-auto max-w-screen-md py-12 relative z-10">
         {/* <Card className="mb-12 overflow-hidden">
           <img
             alt="nature"
@@ -236,9 +239,22 @@ function Home() {
   
   {/* Repeat the above card 3 more times */}
 </div>
+<div className="chat-bot">  
+{/* div for chatbot */}
 
+{/* <Chatbot/> */}
+
+
+</div>
       </div>
-    </div>
+      
+    
+
+   
+      </div>
+    
+    
+
   );
 }
 export default Home
