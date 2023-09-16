@@ -26,7 +26,7 @@ import {
 function Home() {
  
   return (
-    <div className="-m-6 min-h-screen w-[calc(100%+50px)] overflow-scroll">
+    <div className="min-h-screen w-[calc(100%+50px)] overflow-scroll">
 <Navbar/>
        <div className="absolute inset-0 overflow-hidden">
   <video
@@ -52,7 +52,7 @@ function Home() {
             src="https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80"
           />
         </Card> */}
-        <Typography variant="h2" color="white" className="font-bold text-4xl font-serif text-center text-white mb-2 " style={{ fontFamily: ' "DM Serif Display", "Open Sans", "PT Sans", sans-serif' }}>
+        <Typography variant="h2" color="white" className="font-bold text-4xl font-serif text-center text-white mb-2 " style={{ fontFamily: ' "DM Serif Display", "Open Sans", "PT Sans", sans-serif',marginTop:'90px' }}>
           Tired of making legal documents?
         </Typography>
         <Typography
