@@ -55,7 +55,9 @@ function Service() {
   }, []);
 
   useEffect(()=>{
-    setServiceName(data[0].service_name);
+    if (data.length > 0 )
+    {
+    setServiceName(data[0].service_name);}
   }, [data]);
 
   return (
