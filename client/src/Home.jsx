@@ -145,12 +145,28 @@ function Home() {
         >
           This is your one stop destination to get all your queries resolved!
         </Typography>
+        {data.length > 0 && <Typography
+          variant="h2"
+          color="white"
+          className="font-bold text-4xl font-serif text-center text-white -mb-14 "
+          style={{
+            fontFamily:
+              ' "DM Serif Display", "Open Sans", "PT Sans", sans-serif',
+            marginTop: "90px",
+          }}
+        >
+          Available Documents
+        </Typography>}
         {data.length > 0 ? (
           <section className="text-black w-full">
             <div className="container lg:px-16 md:px-9 px-5 py-24 mx-auto w-full">
               <div className="flex flex-wrap -m-4 w-full">
                 {data.map((service, index) => (
-                  <Link to={`/service/${service.id}`} className="p-4 md:w-1/3 cursor-pointer transform transition ease-in-out hover:scale-90 duration-500" key={service.id}>
+                  <Link
+                    to={`/service/${service.service_id}`}
+                    className="p-4 md:w-1/3 cursor-pointer transform transition ease-in-out hover:scale-90 duration-500"
+                    key={service.service_id}
+                  >
                     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                       <img
                         className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -159,9 +175,13 @@ function Home() {
                       />
                       <div className="bg-[#E6E6FA] h-full">
                         <div className="p-6">
-                          <h2 className=" text-lg font-bold text-black mb-3 text-center">{service.service_name}</h2>
+                          <h2 className=" text-lg font-bold text-black mb-3 text-center">
+                            {service.service_name}
+                          </h2>
                           <div className="flex justify-center mb-3 ">
-                            <p className="text-lg font-normal text-black text-justify">{service.description}</p>
+                            <p className="text-lg font-normal text-black text-justify">
+                              {service.description}
+                            </p>
                           </div>
                         </div>
                       </div>
