@@ -19,15 +19,18 @@ p:not(:last-child) {
 }
 
 .outer {
-
     top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: auto;
-        background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
-    
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden; /* Use 'hidden' to hide any overflow from the video */
+   
+    position: relative;
 }
+
+/* Add a video element inside the .outer container */
+
+
 .right select{
     padding: 10px;
             border: 1px solid #ccc;

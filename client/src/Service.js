@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./Service.css";
 import Navbar from "./Navbar";
 
@@ -16,7 +16,7 @@ function Service() {
 
   const { id } = useParams();
   const [data, setData] = useState([]);
-  const [serviceName, setServiceName] = useState('');
+  const [serviceName, setServiceName] = useState("");
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const categories = Array.from(
@@ -54,13 +54,32 @@ function Service() {
       });
   }, []);
 
-  useEffect(()=>{
-    setServiceName(data[0].service_name);
+  useEffect(() => {
+    if(data.length > 0)
+    {
+      setServiceName(data[0].service_name);
+    } 
   }, [data]);
 
   return (
     <div className="outer">
-      <Navbar />
+
+      <div className="absolute inset-0 overflow-hidden h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          className="h-screen w-screen object-cover object-center fixed top-0 left-0 z-0"
+          style={{ zIndex: -1 }}
+        >
+          <source
+            src="https://res.cloudinary.com/dyxnmjtrg/video/upload/v1694668584/Purple_Blue_Modern_Tech_Business_Conference_Video_d5vf0l.mp4"
+            type="video/mp4"
+          />
+          {/* You can add additional source elements for different video formats (e.g., WebM, Ogg) if needed */}
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <div className="serve w-full">
         <div className="right">
@@ -82,10 +101,17 @@ function Service() {
           </select>
         </div>
         <div className="cards mx-auto">
-          <h1 className="text-4xl font-bold">{serviceName.length > 0 && serviceName}</h1>
-          {data.length > 0 ? (
-            data.map((form, index) => (
-                <div className="card" key={form.form_id}>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-4xl font-bold text-center mb-14 text-white">
+              {serviceName.length > 0 && serviceName}
+            </h1>
+            {data.length > 0 ? (
+              data.map((form, index) => (
+                <Link
+                  to={"/form/" + form.form_id}
+                  className="card"
+                  key={form.form_id}
+                >
                   <div className="flex w-full">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -107,15 +133,16 @@ function Service() {
                   </div>
 
                   <button>View Document</button>
-                </div>
-            ))
-          ) : (
-            <div className="flex justify-center w-full items-center">
-              <p className="text-4xl text-white font-bold">
-                We will get back to you soon....
-              </p>
-            </div>
-          )}
+                </Link>
+              ))
+            ) : (
+              <div className="flex justify-center w-full items-center">
+                <p className="text-4xl text-white font-bold">
+                  Contact the Lawyer...
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
