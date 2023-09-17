@@ -8,13 +8,12 @@ import About from './about';
 function App() {
   return (
     <Router>
-    <Routes>
-      
-      <Route path='/' element={<Home/>}/>
-      <Route path='/service' element={<Service/>}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/service/:id" element={<Service />} />
       <Route path='/about' element={<About/>}/>
       </Routes>
-      </Router>
+    </Router>
   );
 }
 
