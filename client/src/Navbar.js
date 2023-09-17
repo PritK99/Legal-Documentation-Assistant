@@ -28,7 +28,7 @@ function Navbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="/about" className="flex items-center">
           About
         </a>
       </Typography>
@@ -48,7 +48,7 @@ function Navbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
           Docs
         </a>
       </Typography>

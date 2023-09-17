@@ -52,14 +52,19 @@ def get_forms():
 @app.route('/api/form-details', methods=["GET"])
 def get_form_details():
     # Send json object {"form_id":"..."}
-    form_id = request.json['form_id']
+    form_id = request.args.get('form_id')
     print(form_id)
     cur = db.cursor()
+    cur.execute("SELECT * FROM forms WHERE form_id = %s;", [form_id])
+    row_headers = [x[0] for x in cur.description]
+    rv = cur.fetchall()
+    json_data = []
+    for result in rv:
+        json_data.append(dict(zip(row_headers, result)))
     cur.execute(
         "SELECT * FROM input_ques WHERE ques_id IN (SELECT form_query_id FROM form_queries WHERE form_id = %s);", [form_id])
     row_headers = [x[0] for x in cur.description]
     rv = cur.fetchall()
-    json_data = []
     for result in rv:
         json_data.append(dict(zip(row_headers, result)))
     cur.close()

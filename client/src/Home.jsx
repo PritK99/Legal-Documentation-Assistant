@@ -13,7 +13,7 @@
 import React from "react";
 import { useState } from "react";
 import Footer from "./footer";
-
+import Chatbot from "./chatbot";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import {
@@ -100,7 +100,7 @@ function Home() {
 
   return (
     <div className="min-h-screen ">
-      <Navbar />
+      
       <div className="absolute inset-0 overflow-hidden h-full">
         <video
           autoPlay
@@ -145,18 +145,34 @@ function Home() {
         >
           This is your one stop destination to get all your queries resolved!
         </Typography>
-        {data.length > 0 && <Typography
-          variant="h2"
-          color="white"
-          className="font-bold text-4xl font-serif text-center text-white -mb-14 "
-          style={{
-            fontFamily:
-              ' "DM Serif Display", "Open Sans", "PT Sans", sans-serif',
-            marginTop: "90px",
-          }}
-        >
-          Available Documents
-        </Typography>}
+
+        <div className="md:max-w-3xl mx-auto mt-14 -mb-7 px-3">
+          <Typography
+            color="white"
+            className="font-light text-center md:text-xl text-base"
+            style={{ fontFamily: '  "PT Sans", sans-serif' }}
+          >
+            Now seamlessly draft your legal documents without knowing any legal jargons. Just answer some easy questions and 
+            get your documents drafted with custom editable feature. We also have an AI Chatbot which will ask you simple questions and automatically draft
+            the document for you. 
+
+          </Typography>
+        </div>
+
+        {data.length > 0 && (
+          <Typography
+            variant="h2"
+            color="white"
+            className="font-bold text-4xl font-serif text-center text-white -mb-14 "
+            style={{
+              fontFamily:
+                ' "DM Serif Display", "Open Sans", "PT Sans", sans-serif',
+              marginTop: "90px",
+            }}
+          >
+            Available Documents
+          </Typography>
+        )}
         {data.length > 0 ? (
           <section className="text-black w-full">
             <div className="container lg:px-16 md:px-9 px-5 py-24 mx-auto w-full">
@@ -247,11 +263,9 @@ function Home() {
         <div className="chat-bot">
           {/* div for chatbot */}
 
-          {/* <Chatbot/> */}
+          <Chatbot/>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
