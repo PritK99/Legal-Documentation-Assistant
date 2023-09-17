@@ -13,7 +13,7 @@
 import React from "react";
 import { useState } from "react";
 import Footer from "./footer";
-
+import Chatbot from "./chatbot";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import {
@@ -263,7 +263,7 @@ function Home() {
         <div className="chat-bot">
           {/* div for chatbot */}
 
-          {/* <Chatbot/> */}
+          <Chatbot/>
         </div>
       </div>
     </div>
