@@ -102,7 +102,7 @@ function Service() {
         </div>
         <div className="cards mx-auto">
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl font-bold text-center mb-14 text-white">
+            <h1 className="text-4xl font-bold text-center mb-14 text-white ml-4 sm:ml-80">
               {serviceName.length > 0 && serviceName}
             </h1>
             {data.length > 0 ? (

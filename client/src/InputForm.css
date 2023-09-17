@@ -1,3 +1,6 @@
 .form1 {
     background-image: url('https://res.cloudinary.com/dyxnmjtrg/image/upload/v1694962434/form2_h7zhiw.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
 }

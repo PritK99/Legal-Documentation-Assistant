@@ -58,37 +58,32 @@ p:not(:last-child) {
 }
 
 .right {
-    flex: 1;
-    position: fixed;
-    /* Fixed position */
-    top: 0;
-    /* Stick to the top of the viewport */
+    /* Remove position: fixed; */
+    /* top: 0; */
     width: 300px;
-    /* Set a fixed width for the right div */
-    height: 100%;
-    /* Fill the entire viewport height */
-    overflow-y: auto;
-    /* Each division takes up equal space */
-
-    margin-bottom: 20px;
+    height: 400px;
+    
+   
     padding: 20px;
-    margin-top: 140px;
-    max-width: 300px;
-    max-height: 400px;
+    margin-top: 80px;
+    /* max-width: 300px;
+    max-height: 400px; */
     /* height: 400px; */
     margin-left: 40px;
-    margin-right: 100px;
+     margin-right: -250px; 
     border: 1px solid rgba(255, 255, 255, .25);
-
     background-color: rgba(255, 255, 255, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
     backdrop-filter: blur(15px);
-    /* Background color for the 'right' division */
+    display: flex;
+    flex-direction: column;
+    /* Change to column layout */
+    justify-content: flex-start;
+    /* Align content to the top */
 }
 
 .cards {
-    margin-top: 100px;
+    margin-top: 40px;
     height: auto;
     
     

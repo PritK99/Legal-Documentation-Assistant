@@ -61,6 +61,7 @@ function InputForm() {
 
   return (
     <div className="form1">
+      
       {data.length>0 &&
       <h1>{data[0].form_name}</h1>}
       <form onSubmit={handleSubmit}>
@@ -68,13 +69,20 @@ function InputForm() {
           {data.map(
             (ques, index) =>
               index !== 0 && (
-                <div className="md:max-w-lg w-full pt-7" key={ques.ques_id}>
-                  <label for="name">{ques.ques_label}</label>
+                <div className="md:max-w-lg w-full pt-7" key={ques.ques_id} >
+                  <label for="name" >{ques.ques_label}</label>
                   <input
                     type={ques.ques_type}
                     name={ques.ques_id}
                     class="w-full rounded-md border border-gray-300 px-3 py-2"
                     required
+                    style={{
+                    border: '1px solid rgba(255, 255, 255, .25)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.45)',
+                    boxShadow: '0 0 10px 1px rgba(0, 0, 0, 0.25)',
+                    backdropFilter: 'blur(15px)',
+          }}
+
                   />
                 </div>
               )
