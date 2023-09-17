@@ -4,7 +4,7 @@ import React from 'react';
 import Home from './Home';
 import Service from './Service';
 import About from './about';
-
+import Navbar from './Navbar';
 import InputForm from "./InputForm";
 import Footer from "./footer";
 

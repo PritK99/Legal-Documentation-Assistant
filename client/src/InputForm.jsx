@@ -25,20 +25,20 @@ function InputForm() {
       },
       body: formDataJsonString
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("could not fetch");
-        }
-        return res.json();
-      })
-      .then((res) => {
-        console.log(res);
-        setData(res);
-        // console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then(response => response.blob())
+    .then(blob => {
+        // Create a new Blob object and a link to download it
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'file.docx';
+        document.body.appendChild(a);
+        a.click();
+        // Clean up
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    });
   };
 
   useEffect(() => {
