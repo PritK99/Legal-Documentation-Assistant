@@ -26,10 +26,11 @@ def services():
 # Get forms of a particular service
 @app.route('/api/forms', methods = ["GET"])
 def get_forms():
-    Service = request.json['service_id']                # Send json object {"service_id": "..."}
+    Service = request.args.get('service_id')                # Send json object {"service_id": "..."}
     print(type(Service))
+    print(Service)
     cur = db.cursor()
-    cur.execute("SELECT * FROM forms WHERE service_id = %s;", [Service])
+    cur.execute("SELECT services.service_id, services.service_name, forms.form_id, forms.form_name, forms.form_link FROM services INNER JOIN forms ON services.service_id = forms.service_id WHERE forms.service_id = %s;", [Service])
     row_headers=[x[0] for x in cur.description]
     rv = cur.fetchall()
     json_data=[]
