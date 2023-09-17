@@ -3,7 +3,8 @@ import './App.css';
 import React from 'react';
 import Home from './Home';
 import Service from './Service';
-import Navbar from './Navbar';
+import About from './about';
+
 function App() {
   return (
     <Router>
@@ -11,6 +12,7 @@ function App() {
       
       <Route path='/' element={<Home/>}/>
       <Route path='/service' element={<Service/>}/>
+      <Route path='/about' element={<About/>}/>
       </Routes>
       </Router>
   );
