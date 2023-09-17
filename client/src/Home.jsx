@@ -263,7 +263,7 @@ function Home() {
         <div className="chat-bot">
           {/* div for chatbot */}
 
-          <Chatbot/>
+          {/* <Chatbot/> */}
         </div>
       </div>
     </div>

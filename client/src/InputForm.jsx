@@ -60,20 +60,20 @@ function InputForm() {
   }, []);
 
   return (
-    <div className="form1">
+    <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 ">
       {data.length>0 &&
       <h1>{data[0].form_name}</h1>}
       <form onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 pt-40 min-h-screen p-10 ">
+        <div className="grid md:grid-cols-2 pt-40 min-h-screen p-10  ">
           {data.map(
             (ques, index) =>
               index !== 0 && (
-                <div className="md:max-w-lg w-full pt-7" key={ques.ques_id}>
-                  <label for="name">{ques.ques_label}</label>
+                <div className="md:max-w-lg w-full pt-7 " key={ques.ques_id}>
+                  <label for="name" className="text-white text-lg font-bold">{ques.ques_label}</label>
                   <input
                     type={ques.ques_type}
                     name={ques.ques_id}
-                    class="w-full rounded-md border border-gray-300 px-3 py-2"
+                    className="w-full rounded-md border  border-gray-300 px-3 py-2"
                     required
                   />
                 </div>

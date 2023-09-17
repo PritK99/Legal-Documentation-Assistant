@@ -1,4 +1,5 @@
 import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+
 import './App.css';
 import React from 'react';
 import Home from './Home';
@@ -7,12 +8,14 @@ import About from './about';
 import Navbar from './Navbar';
 import InputForm from "./InputForm";
 import Footer from "./footer";
-
+import Chatbot from './chatbot';
 function App() {
   return (
     <>
       <Navbar />
+       
       <Router>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/service/:id" element={<Service />} />
@@ -20,6 +23,8 @@ function App() {
         <Route path='/about' element={<About/>}/>
       </Routes>
       </Router>
+       
+      <Chatbot/>
       <Footer />
     </>
   );
