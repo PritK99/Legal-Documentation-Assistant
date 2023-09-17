@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
+import requests
 from flask_mysqldb import MySQL
 import MySQLdb
 from flask_cors import CORS
+from docx import Document
 
 app = Flask(__name__)
 
@@ -86,7 +88,18 @@ def final_form():
     for result in rv:
         json_data.append(dict(zip(row_headers, result)))
     cur.close()
-    return jsonify(json_data)
+    print(json_data[0]["form_link"])
+    response = requests.get(json_data[0]["form_link"])
+    with open('docs/localfile.docx', 'wb') as f:
+        f.write(response.content)
+    doc = Document('docs/localfile.docx')
+    for key, value in form_details.items():
+        for paragraph in doc.paragraphs:
+            paragraph.text = paragraph.text.replace(
+                "#"+str(key)+'#', str(value))
+
+    doc.save("docs/Output2.docx")
+    return send_file('..\docs\Output2.docx', as_attachment=True)
 
 
 if __name__ == '__main__':
