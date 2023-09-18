@@ -151,7 +151,7 @@ function InputForm() {
           </button>
         </div>
       </form>
-      <ReactQuill theme="snow" value={content} onChange={setContent} className="preserve-linebreaks" ref={quillRef} id="editor"/>
+      <ReactQuill theme="snow" value={content} onChange={setContent} ref={quillRef} id="editor"/>
       <button onClick={saveText}>Save</button>
     </div>
   );

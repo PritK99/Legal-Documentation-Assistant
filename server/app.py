@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 import MySQLdb
 from flask_cors import CORS
 from docx import Document
+import mammoth
 
 app = Flask(__name__)
 
@@ -89,9 +90,9 @@ def final_content():
     cur.close()
     print(json_data[0]["form_link"])
     response = requests.get(json_data[0]["form_link"])
-    with open('docs/localfile.docx', 'wb') as f:
+    with open('../docs/localfile.docx', 'wb') as f:
         f.write(response.content)
-    doc = Document('docs/localfile.docx')
+    doc = Document('../docs/localfile.docx')
     test = list(form_details.keys())
     
     test.sort(reverse=True)
@@ -99,7 +100,7 @@ def final_content():
     for key in test:
         old = "#"+str(key)
         new = str(form_details[key])
-        print(old, new)
+        # print(old, new)
         for p in doc.paragraphs:
             if old in p.text:
                 # print(old)
@@ -110,12 +111,19 @@ def final_content():
                         res = inline[i].text.replace(old, new)
                         inline[i].text = res
     doc.save("docs/Output2.docx")
-    fullText = []
-    for para in doc.paragraphs:
-        fullText.append(para.text)
-    fullText = '\n'.join(fullText)
-    print(fullText)
-    return jsonify({'content': fullText})
+    
+    f = open('docs/Output2.docx', 'rb')
+    
+    docx_content = mammoth.convert_to_html(f)
+    print(docx_content.value)
+    # docx_content.close()
+
+    # fullText = []
+    # for para in doc.paragraphs:
+    #     fullText.append(para.text)
+    # fullText = '\n'.join(fullText)
+    # print(fullText)
+    return jsonify({'content': docx_content.value})
 
 
 # Return the final doc
@@ -134,7 +142,7 @@ def final_form():
     #             "#"+str(key)+'#', str(value))
 
     # doc.save("docs/Output2.docx")
-    return send_file('..\docs\Output2.docx', as_attachment=True)
+    return send_file('docs\Output2.docx', as_attachment=True)
 
 
 if __name__ == '__main__':
