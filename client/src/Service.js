@@ -82,22 +82,18 @@ function Service() {
 
       <div className="serve w-full">
         <div className="right">
-          <h2>Search bar </h2>
+          <h2>Steps: </h2>
           <br />
-          <label htmlFor="category"> Select Category:</label>
+         <ol >
+
+          <li className="bg-blue-500 rounded">Select legal document. </li>
           <br />
-          <select
-            id="category"
-            value={selectedCategory}
-            onChange={(e) => handleFilter(e.target.value)}
-          >
-            <option value="">All</option>
-            {categories.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+          <li className="bg-white rounded">Enter the details in form pertaining to your problem. </li>
+          <li>Edit the document as per your requirement.</li>
+          <li>Download legal document. </li>
+         </ol>
+
+
         </div>
         <div className="cards mx-auto">
           <div className="flex flex-col justify-center">

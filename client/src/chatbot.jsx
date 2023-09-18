@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
- 
+ import './chatbot.css'
 const Chatbot = () => {
   useEffect(() => {
     const script = document.createElement('script')
@@ -17,7 +17,16 @@ const Chatbot = () => {
     }
   }, [])
  
-  return <div id="webchat " />
+  return (
+
+  <>
+  <div className='pb-1'>
+  
+  <div id="webchat" />
+  </div>
+    
+  </>
+  )
 }
  
 export default Chatbot

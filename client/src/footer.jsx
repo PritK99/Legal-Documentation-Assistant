@@ -194,8 +194,9 @@ const Footer = () => {
             </li>
           </ul>
       <div className='nalsa pt-10'>
-
-        <img src="https://res.cloudinary.com/dvgieawnp/image/upload/v1694883627/logo_nalsa_ooyptz.png" alt="#" />
+<a href="https://nalsa.gov.in/" target='blank'>
+    <img src="https://res.cloudinary.com/dvgieawnp/image/upload/v1694883627/logo_nalsa_ooyptz.png" alt="#" />
+</a>
       </div>
         </div>
         <ul
@@ -325,7 +326,7 @@ const Footer = () => {
     <div className="mt-8 border-t border-gray-100 pt-8 dark:border-gray-800">
       <div className="sm:flex sm:justify-between">
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          &copy; 2022. Company Name. All rights reserved.
+          &copy; 2023. DocBuddy . All rights reserved.
         </p>
 
         <ul
