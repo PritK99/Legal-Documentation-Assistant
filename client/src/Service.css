@@ -45,8 +45,7 @@ p:not(:last-child) {
     font: 1em/1.618 Inter, sans-serif;
     
     display: flex;
-    align-items: center;
-    /* justify-content: center;  */
+    
 
      min-height: 100vh;
     padding: 30px;
@@ -57,30 +56,6 @@ p:not(:last-child) {
 
 }
 
-.right {
-    /* Remove position: fixed; */
-    /* top: 0; */
-    width: 300px;
-    height: 400px;
-    
-   
-    padding: 20px;
-    margin-top: 80px;
-    /* max-width: 300px;
-    max-height: 400px; */
-    /* height: 400px; */
-    margin-left: 40px;
-     margin-right: -250px; 
-    border: 1px solid rgba(255, 255, 255, .25);
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
-    /* Change to column layout */
-    justify-content: flex-start;
-    /* Align content to the top */
-}
 
 .cards {
     margin-top: 40px;
@@ -90,22 +65,22 @@ p:not(:last-child) {
 }
 
 .card {
-    flex: 1;
+    
     /* Each division takes up equal space */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #e0e0e0;
-    width: 500px;
+    width: 90%;
     margin-bottom: 10px;
 
-    max-width: 300px;
-    min-height: 150px;
+    
+    min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* margin-top: 100px; */
-    max-width: 500px;
-    height: 180px;
+   
+    height: 170px;
     padding: 35px;
 
     border: 1px solid rgba(255, 255, 255, .25);
@@ -114,7 +89,7 @@ p:not(:last-child) {
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
     backdrop-filter: blur(15px);
-    margin-left: 450px;
+   
 }
 
 .card p {

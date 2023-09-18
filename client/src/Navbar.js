@@ -69,7 +69,9 @@ function Navbar() {
           >
             DocBuddy
           </Typography> */}
-          <Link to="/" className="mr-4 cursor-pointer py-1.5 font-bold text-2xl  font-serif">DocBuddy</Link>
+          <Link to="/" className="mr-4 cursor-pointer py-1.5 font-bold text-2xl  font-serif">
+            <img src='https://res.cloudinary.com/dyxnmjtrg/image/upload/v1695064580/copy-img_gd3jcp.png' style={{width:'200px',height:'50px',marginLeft:'-30px'}}/>
+          </Link>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">
              

@@ -85,7 +85,7 @@ function Service() {
 
       <div className="serve w-full">
           
-        <div className="right">
+        {/* <div className="right">
           
           <h2>Steps: </h2>
           <br />
@@ -99,7 +99,7 @@ function Service() {
          </ol>
 
 
-        </div>
+        </div> */}
         
         <div className="cards mx-auto">
           <div className="cards mx-auto">
@@ -112,7 +112,7 @@ function Service() {
   </div>
 </div> */}
 
-<div style={{marginTop:'20px',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+<div style={{marginTop:'20px',display: 'flex', justifyContent: 'center'}}>
 <ul className="steps">
   <li className="step step-primary" >Search Document</li>
   <li className="step " style={{color:'white'}}>Fill information</li>
@@ -124,8 +124,8 @@ function Service() {
 
 </div>
 
-          <div className="flex flex-col justify-center">
-            <h1 className="text-4xl font-bold text-center mb-14 text-white ml-4 sm:ml-80">
+          <div className="flex flex-col justify-center items-center ">
+            <h1 className="text-4xl font-bold text-center  text-white mb-7 mt-3 ">
               {serviceName.length > 0 && serviceName}
             </h1>
             {data.length > 0 ? (
@@ -135,7 +135,7 @@ function Service() {
                   className="card"
                   key={form.form_id}
                 >
-                  <div className="flex w-full">
+                  <div className="flex w-full mx-auto text-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
