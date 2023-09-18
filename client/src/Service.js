@@ -32,6 +32,7 @@ function Service() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch(`http://127.0.0.1:5000/api/forms?service_id=${id}`, {
       method: "GET",
       headers: {
@@ -55,15 +56,13 @@ function Service() {
   }, []);
 
   useEffect(() => {
-    if(data.length > 0)
-    {
+    if (data.length > 0) {
       setServiceName(data[0].service_name);
-    } 
+    }
   }, [data]);
 
   return (
     <div className="outer">
-
       <div className="absolute inset-0 overflow-hidden h-full">
         <video
           autoPlay

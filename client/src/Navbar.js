@@ -1,6 +1,7 @@
 // Navbar.js
 
 import React, { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar as MaterialNavbar,
   MobileNav,
@@ -59,13 +60,14 @@ function Navbar() {
     
     <MaterialNavbar className="fixed top-[-40px] w-full z-50 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
      <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
+          {/* <Typography
             as="a"
             href="/"
             className="mr-4 cursor-pointer py-1.5 font-bold text-2xl  font-serif "
           >
             DocBuddy
-          </Typography>
+          </Typography> */}
+          <Link to="/" className="mr-4 cursor-pointer py-1.5 font-bold text-2xl  font-serif">DocBuddy</Link>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <Button
