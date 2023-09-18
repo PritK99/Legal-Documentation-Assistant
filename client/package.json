@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.18",
-    "@material-tailwind/react": "^2.1.1",
+    "@material-tailwind/react": "^2.1.2",
+    "@ramonak/react-progress-bar": "^5.0.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,6 +15,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-progressbar": "^15.4.1",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
@@ -46,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "daisyui": "^3.7.5",
     "tailwindcss": "^3.3.3"
   }
 }

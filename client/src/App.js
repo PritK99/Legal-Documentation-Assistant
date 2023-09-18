@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import InputForm from "./InputForm";
 import Footer from "./footer";
 import Chatbot from "./chatbot";
+
 function App() {
   return (
     <>

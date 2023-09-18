@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Service.css";
 import Navbar from "./Navbar";
+import Progress from 'react-progressbar'
+import ProgressBar from "@ramonak/react-progress-bar";
+
 
 function Service() {
   const initialCards = [
@@ -81,7 +84,9 @@ function Service() {
       </div>
 
       <div className="serve w-full">
+          
         <div className="right">
+          
           <h2>Steps: </h2>
           <br />
          <ol >
@@ -95,7 +100,30 @@ function Service() {
 
 
         </div>
+        
         <div className="cards mx-auto">
+          <div className="cards mx-auto">
+  {/* <div style={{ display: 'flex', alignItems: 'center', marginTop: '50px' }}>
+  <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'blue', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '1px' }}>
+    1
+  </div>
+  <div style={{ width: '900px' }}>
+    <Progress completed={50} />
+  </div>
+</div> */}
+
+<div style={{marginTop:'20px',display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+<ul className="steps">
+  <li className="step step-primary" >Search Document</li>
+  <li className="step " style={{color:'white'}}>Fill information</li>
+  <li className="step " style={{color:'white'}}>Save document</li>
+  <li className="step" style={{color:'white'}}>Download document</li>
+
+</ul>
+</div>
+
+</div>
+
           <div className="flex flex-col justify-center">
             <h1 className="text-4xl font-bold text-center mb-14 text-white ml-4 sm:ml-80">
               {serviceName.length > 0 && serviceName}

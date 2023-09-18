@@ -5,12 +5,16 @@ import "react-quill/dist/quill.snow.css";
 import * as quillToWord from "quill-to-word";
 import { toast } from 'react-toastify';
 import "./InputForm.css";
+import ProgressBar from "@ramonak/react-progress-bar";
+
+import Progress from 'react-progressbar'
 
 function InputForm() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [content, setContent] = useState([]);
   const [displayForm, setDisplayForm] = useState(true);
+   const [displaySteps, setDisplaySteps] = useState(true);
   const quillRef = useRef(null);
   const navigate = useNavigate();
 
@@ -127,12 +131,24 @@ function InputForm() {
 
   return (
     <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen">
+     
       {data.length > 0 && (
         <h1 className="text-white font-bold text-4xl pt-36 text-center -mb-32">
           {data[0].form_name}
         </h1>
       )}
-      {displayForm ? (
+    
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:'20px'}}>
+<ul className="steps">
+ <li className="step step-primary" >Search Document</li>
+  <li className="step step-primary ">Fill information</li>
+  <li className="step " style={{color:'white'}}>Save document</li>
+  <li className="step" style={{color:'white'}}>Download document</li>
+  
+</ul>
+</div>
+
+  {displayForm ? (
         <form onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 pt-40  p-10  ">
             {data.map(
