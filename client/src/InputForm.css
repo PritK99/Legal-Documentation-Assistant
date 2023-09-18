@@ -4,3 +4,6 @@
     background-repeat: no-repeat;
     
 }
+.preserve-linebreaks {
+    white-space: pre-wrap;
+}

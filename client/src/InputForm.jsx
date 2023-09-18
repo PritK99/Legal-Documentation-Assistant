@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import * as quillToWord from 'quill-to-word';
 import "./InputForm.css";
+
+
 function InputForm() {
   const { id } = useParams();
   const [data, setData] = useState([]);
-
+  const [content, setContent] = useState([]);
+  const quillRef = useRef(null);
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -18,27 +24,75 @@ function InputForm() {
     const formDataJsonString = JSON.stringify(formDataObj);
     console.log(formDataJsonString);
 
-    fetch(`http://127.0.0.1:5000/api/final-form`, {
+    fetch(`http://127.0.0.1:5000/api/final-content`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: formDataJsonString
     })
-    .then(response => response.blob())
-    .then(blob => {
-        // Create a new Blob object and a link to download it
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'file.docx';
-        document.body.appendChild(a);
-        a.click();
-        // Clean up
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
+    // .then(response => response.blob())
+    // .then(blob => {
+    //     // Create a new Blob object and a link to download it
+    //     const url = window.URL.createObjectURL(blob);
+    //     const a = document.createElement('a');
+    //     a.style.display = 'none';
+    //     a.href = url;
+    //     a.download = 'file.docx';
+    //     document.body.appendChild(a);
+    //     a.click();
+    //     // Clean up
+    //     window.URL.revokeObjectURL(url);
+    //     document.body.removeChild(a);
+    .then(response => response.json())
+    .then(data => {
+      setContent(data.content)
+      console.log(content)
     });
+  };
+
+
+  const saveText = async () => {
+    // const contents = quillRef.current.getEditor().getContents();
+    // fetch('http://127.0.0.1:5000/api/final-form', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(contents)
+    // })
+    //   .then(response => response.blob())
+    //   .then(blob => {
+    //       // Create a new Blob object and a link to download it
+    //       const url = window.URL.createObjectURL(blob);
+    //       const a = document.createElement('a');
+    //       a.style.display = 'none';
+    //       a.href = url;
+    //       a.download = 'file.docx';
+    //       document.body.appendChild(a);
+    //       a.click();
+    //       // Clean up
+    //       window.URL.revokeObjectURL(url);
+    //       document.body.removeChild(a);
+    //   });
+    const contents = quillRef.current.getEditor().getContents();
+    const quillToWordConfig = {
+      exportAs: 'blob'
+    };
+    const doc = await quillToWord.generateWord(contents, quillToWordConfig);
+    console.log(doc)
+    // const blob = new Blob([doc], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+    const url = window.URL.createObjectURL(doc);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'file.docx';
+    document.body.appendChild(a);
+    a.click();
+    // Clean up
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+    
   };
 
   useEffect(() => {
@@ -97,6 +151,8 @@ function InputForm() {
           </button>
         </div>
       </form>
+      <ReactQuill theme="snow" value={content} onChange={setContent} className="preserve-linebreaks" ref={quillRef} id="editor"/>
+      <button onClick={saveText}>Save</button>
     </div>
   );
 }

@@ -72,11 +72,10 @@ def get_form_details():
     cur.close()
     return jsonify(json_data)
 
-# Return the final doc
 
-
-@app.route('/api/final-form', methods=["POST"])
-def final_form():
+# Return the contents of final doc
+@app.route('/api/final-content', methods=["POST"])
+def final_content():
     form_details = request.json                         # Under Progress
     form_id = form_details["form_id"]
     print(type(form_details))
@@ -99,6 +98,30 @@ def final_form():
                 "#"+str(key)+'#', str(value))
 
     doc.save("docs/Output2.docx")
+    fullText = []
+    for para in doc.paragraphs:
+        fullText.append(para.text)
+    fullText = '\n'.join(fullText)
+    print(fullText)
+    return jsonify({'content': fullText})
+
+
+# Return the final doc
+
+
+@app.route('/api/final-form', methods=["POST"])
+def final_form():
+    contents = request.get_json()
+    print(contents)
+    with open('docs/Output2.docx', 'w') as file:
+        file.write(contents)
+    # doc = Document('docs/localfile.docx')
+    # for key, value in form_details.items():
+    #     for paragraph in doc.paragraphs:
+    #         paragraph.text = paragraph.text.replace(
+    #             "#"+str(key)+'#', str(value))
+
+    # doc.save("docs/Output2.docx")
     return send_file('..\docs\Output2.docx', as_attachment=True)
 
 
