@@ -51,8 +51,8 @@ function Navbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="/" className="flex items-center">
-          Docs
+        <a href="/faq" className="flex items-center">
+          FAQ's
         </a>
       </Typography>
       </ul>
@@ -60,7 +60,7 @@ function Navbar() {
 
   return (
     
-    <MaterialNavbar className="fixed top-[-40px] w-full z-40 h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
+    <MaterialNavbar className="fixed z-40 top-[-40px] w-full h-16 max-w-full rounded-none py-1 px-4 lg:px-8 lg:py-2 mt-10">
      <div className="flex items-center justify-between text-blue-gray-900">
           {/* <Typography
             as="a"

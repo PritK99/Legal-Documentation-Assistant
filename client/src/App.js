@@ -9,7 +9,7 @@ import Navbar from "./Navbar";
 import InputForm from "./InputForm";
 import Footer from "./footer";
 import Chatbot from "./chatbot";
-
+import Faq from "./Faq";
 function App() {
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
           <Route path="/service/:id" element={<Service />} />
           <Route path="/form/:id" element={<InputForm />} />
           <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </Router>
 
