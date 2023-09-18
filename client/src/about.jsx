@@ -1,14 +1,9 @@
 import React from "react";
 
-
-
-
 const About = () => {
   return (
-    <>
-    
-   
-    <div className=" h-screen bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center ">
+    <>    
+    <div className="h-screen bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center ">
     <div className="bg-white p-6 rounded-lg shadow-md ">
         <img
           src="https://res.cloudinary.com/dvgieawnp/image/upload/v1695017914/eac-pm-calls-for-codification-of-law-of-torts-punitive-damages-to-victims_yjmj3g.jpg" // Replace with your photo URL or import it

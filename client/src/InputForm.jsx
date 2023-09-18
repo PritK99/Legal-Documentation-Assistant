@@ -161,7 +161,7 @@ function InputForm() {
                     <input
                       type={ques.ques_type}
                       name={ques.ques_id}
-                      className="w-full rounded-md border  border-gray-300 px-3 py-2"
+                      className="w-full rounded-md border text-black border-gray-300 px-3 py-2"
                       required
                       style={{
                         border: "1px solid rgba(255, 255, 255, .25)",
@@ -191,7 +191,7 @@ function InputForm() {
             theme="snow"
             value={content}
             onChange={setContent}
-            className="preserve-linebreaks bg-white"
+            className="preserve-linebreaks bg-white text-black"
             ref={quillRef}
             id="editor"
           />
