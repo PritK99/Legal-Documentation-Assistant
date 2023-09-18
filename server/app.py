@@ -92,11 +92,23 @@ def final_content():
     with open('docs/localfile.docx', 'wb') as f:
         f.write(response.content)
     doc = Document('docs/localfile.docx')
-    for key, value in form_details.items():
-        for paragraph in doc.paragraphs:
-            paragraph.text = paragraph.text.replace(
-                "#"+str(key)+'#', str(value))
-
+    test = list(form_details.keys())
+    
+    test.sort(reverse=True)
+    
+    for key in test:
+        old = "#"+str(key)
+        new = str(form_details[key])
+        print(old, new)
+        for p in doc.paragraphs:
+            if old in p.text:
+                # print(old)
+                inline = p.runs
+                for i in range(len(inline)):
+                    if old in inline[i].text:
+                        # print(old)
+                        res = inline[i].text.replace(old, new)
+                        inline[i].text = res
     doc.save("docs/Output2.docx")
     fullText = []
     for para in doc.paragraphs:
