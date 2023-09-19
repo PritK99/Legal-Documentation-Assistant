@@ -10,12 +10,14 @@
 
 // export default Home
 
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import Footer from "./footer";
 import Chatbot from "./chatbot";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import { StepContext } from "./context/StepContext";
+
 import {
   MobileNav,
   Typography,
@@ -25,6 +27,7 @@ import {
 } from "@material-tailwind/react";
 
 function Home() {
+  const context = useContext(StepContext);
   const [openNav, setOpenNav] = React.useState(false);
   const [data, setData] = useState([]);
 
@@ -33,6 +36,12 @@ function Home() {
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
+    window.scrollTo(0, 0);
+
+    context.setStep1(false);
+    context.setStep2(false);
+    context.setStep3(false);
+    context.setStep4(false);
 
     fetch("http://127.0.0.1:5000/api/services")
       .then((res) => {

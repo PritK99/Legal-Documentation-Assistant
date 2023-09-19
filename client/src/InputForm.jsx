@@ -1,26 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import * as quillToWord from "quill-to-word";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import "./InputForm.css";
-import ProgressBar from "@ramonak/react-progress-bar";
-
-import Progress from 'react-progressbar'
+import { StepContext } from "./context/StepContext";
 
 function InputForm() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [content, setContent] = useState([]);
   const [displayForm, setDisplayForm] = useState(true);
-   const [displaySteps, setDisplaySteps] = useState(true);
+  const [displaySteps, setDisplaySteps] = useState(true);
   const quillRef = useRef(null);
   const navigate = useNavigate();
+  const context = useContext(StepContext);
+  const [displayHome, setDisplayHome] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    context.setStep2(true);
+    // context.setStep3(true);
     const formData = new FormData(event.target);
 
     // console.log(formData);
@@ -61,6 +62,10 @@ function InputForm() {
   };
 
   const saveText = async () => {
+    // if(context.setStep3 === false)
+    context.setStep3(true);
+    context.setStep4(true);
+    setDisplayHome(true);
     // const contents = quillRef.current.getEditor().getContents();
     // fetch('http://127.0.0.1:5000/api/final-form', {
     //     method: 'POST',
@@ -107,7 +112,6 @@ function InputForm() {
       hideProgressBar: false,
     });
 
-    navigate("/");
   };
 
   useEffect(() => {
@@ -129,82 +133,126 @@ function InputForm() {
       });
   }, []);
 
+  const handleQuillChange = (html) => {
+    context.setStep3(true);
+    setContent(html);
+  }
+
+  const navHome = () => {
+    navigate("/");
+  }
+
   return (
     <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen">
-     
-      {data.length > 0 && (
-        <h1 className="text-white font-bold text-4xl pt-36 text-center -mb-32">
-          {data[0].form_name}
-        </h1>
-      )}
-    
-<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:'20px'}}>
-<ul className="steps">
- <li className="step step-primary" >Search Document</li>
-  <li className="step step-primary ">Fill information</li>
-  <li className="step " style={{color:'white'}}>Save document</li>
-  <li className="step" style={{color:'white'}}>Download document</li>
-  
-</ul>
-</div>
+      <div
+        className="flex justify-center items-center pt-32 -mb-32"
+      >
+        <ul className="steps">
+          <li className="step step-success text-white font-semibold">
+            Select Legal Document
+          </li>
+          <li
+            className={`step ${
+              context.step2 && "step-success"
+            } text-white font-semibold`}
+          >
+            Fill information
+          </li>
+          <li
+            className={`step ${
+              context.step3 ? "step-success" : ""
+            } text-white font-semibold`}
+          >
+            Edit document
+          </li>
+          <li
+            className={`step ${
+              context.step4 ? "step-success" : ""
+            } text-white font-semibold`}
+            style={{ color: "white" }}
+          >
+            Download document
+          </li>
+        </ul>
+      </div>
 
-  {displayForm ? (
-        <form onSubmit={handleSubmit}>
-          <div className="grid md:grid-cols-2 pt-40  p-10  ">
-            {data.map(
-              (ques, index) =>
-                index !== 0 && (
-                  <div className="md:max-w-lg w-full pt-7 " key={ques.ques_id}>
-                    <label for="name" className="text-white text-lg font-bold">
-                      {ques.ques_label}
-                    </label>
-                    <input
-                      type={ques.ques_type}
-                      name={ques.ques_id}
-                      className="w-full rounded-md border text-black border-gray-300 px-3 py-2"
-                      required
-                      style={{
-                        border: "1px solid rgba(255, 255, 255, .25)",
-                        backgroundColor: "rgba(255, 255, 255, 0.45)",
-                        boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
-                        backdropFilter: "blur(15px)",
-                      }}
-                    />
-                  </div>
-                )
-            )}
-          </div>
+      <div className="">
+        {data.length > 0 && (
+          <h1 className="text-white font-bold text-4xl pt-48 text-center -mb-32">
+            {data[0].form_name}
+          </h1>
+        )}
 
-          <div className="flex justify-center w-full p-7 ">
-            <button
-              type="submit"
-              className="p-4 text-lg font-bold text-white rounded bg-green-500 transform transition ease-in-out hover:scale-90 duration-150"
-            >
-              Submit
-            </button>
+        {displayForm ? (
+          <form onSubmit={handleSubmit}>
+            <div className="grid md:grid-cols-2 pt-40  p-10  ">
+              {data.map(
+                (ques, index) =>
+                  index !== 0 && (
+                    <div
+                      className="md:max-w-lg w-full pt-7 "
+                      key={ques.ques_id}
+                    >
+                      <label
+                        for="name"
+                        className="text-white text-lg font-bold"
+                      >
+                        {ques.ques_label}
+                      </label>
+                      <input
+                        type={ques.ques_type}
+                        name={ques.ques_id}
+                        className="w-full rounded-md border text-black border-gray-300 px-3 py-2"
+                        required
+                        style={{
+                          border: "1px solid rgba(255, 255, 255, .25)",
+                          backgroundColor: "rgba(255, 255, 255, 0.45)",
+                          boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
+                          backdropFilter: "blur(15px)",
+                        }}
+                      />
+                    </div>
+                  )
+              )}
+            </div>
+
+            <div className="flex justify-center w-full p-7 ">
+              <button
+                type="submit"
+                className="p-4 text-lg font-bold text-white rounded bg-green-500 transform transition ease-in-out hover:scale-90 duration-150"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div className="px-28 mt-48">
+            <h1 className="text-white font-bold text-2xl text-center mb-3">Edit Document</h1>
+            <ReactQuill
+              theme="snow"
+              value={content}
+              onChange={handleQuillChange}
+              className="preserve-linebreaks bg-white text-black"
+              ref={quillRef}
+              id="editor"
+            />
+            <div className="flex justify-center">
+              <button
+                onClick={saveText}
+                className="p-4 text-lg font-bold text-white rounded bg-green-500 transform transition ease-in-out hover:scale-90 duration-150 my-11"
+              >
+                Save
+              </button>
+              {displayHome && <button
+                onClick={navHome}
+                className="p-4 ml-7 text-lg font-bold text-white rounded bg-red-300 transform transition ease-in-out hover:scale-90 duration-150 my-11"
+              >
+                Home
+              </button>}
+            </div>
           </div>
-        </form>
-      ) : (
-        <div className="px-28 mt-48">
-          <h1 className="text-white font-bold text-3xl">Edit Document</h1>
-          <ReactQuill
-            theme="snow"
-            value={content}
-            onChange={setContent}
-            className="preserve-linebreaks bg-white text-black"
-            ref={quillRef}
-            id="editor"
-          />
-          <div className="flex justify-center">
-            <button
-              onClick={saveText}
-              className="p-4 text-lg font-bold text-white rounded bg-green-500 transform transition ease-in-out hover:scale-90 duration-150 my-11"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
