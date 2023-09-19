@@ -20,6 +20,7 @@ function InputForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    window.scrollTo(0, 0);
     context.setStep2(true);
     // context.setStep3(true);
     const formData = new FormData(event.target);
@@ -63,6 +64,7 @@ function InputForm() {
 
   const saveText = async () => {
     // if(context.setStep3 === false)
+    window.scrollTo(0, 0);
     context.setStep3(true);
     context.setStep4(true);
     setDisplayHome(true);
