@@ -5,9 +5,6 @@ import "react-quill/dist/quill.snow.css";
 import * as quillToWord from "quill-to-word";
 import { toast } from 'react-toastify';
 import "./InputForm.css";
-import ProgressBar from "@ramonak/react-progress-bar";
-
-import Progress from 'react-progressbar'
 
 function InputForm() {
   const { id } = useParams();
@@ -133,7 +130,7 @@ function InputForm() {
     <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen">
      
       {data.length > 0 && (
-        <h1 className="text-white font-bold text-4xl pt-36 text-center -mb-32">
+        <h1 className="text-white font-bold text-4xl pt-36 text-center -mb-32 ">
           {data[0].form_name}
         </h1>
       )}
