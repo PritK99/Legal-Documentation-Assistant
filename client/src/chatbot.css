@@ -3,11 +3,11 @@
   .center-div {
     width: 50vw;
     height: 80vh;
-    background-color: rgb(102, 71, 255);
+    background-color: rgb(18, 4, 88);
     border-radius: 15px;
     padding: 5px;
     box-sizing: border-box;
-    color: white;
+    color: rgb(20, 17, 75);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
     .center-div {
       height: 40vh;
       width: 80vw;
-      background-color: rgb(102, 71, 255);
+      background-color: rgb(16, 6, 69);
       border-radius: 15px;
       padding: 5px;
       box-sizing: border-box;

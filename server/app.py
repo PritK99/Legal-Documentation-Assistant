@@ -92,15 +92,16 @@ def final_content():
     response = requests.get(json_data[0]["form_link"])
     with open('./docs/localfile.docx', 'wb') as f:
         f.write(response.content)
+        
     doc = Document('./docs/localfile.docx')
-    test = list(form_details.keys())
+    test = list([int(x) for x in form_details.keys() if x.isdigit()])
     
     test.sort(reverse=True)
-    
+    print(test)
     for key in test:
-        old = "#"+str(key)
-        new = str(form_details[key])
-        # print(old, new)
+        old = '#'+str(key)
+        new = str(form_details[str(key)])
+        
         for p in doc.paragraphs:
             if old in p.text:
                 # print(old)
@@ -115,7 +116,7 @@ def final_content():
     f = open('./docs/Output2.docx', 'rb')
     
     docx_content = mammoth.convert_to_html(f)
-    print(docx_content.value)
+    # print(docx_content.value)
     # docx_content.close()
 
     # fullText = []
