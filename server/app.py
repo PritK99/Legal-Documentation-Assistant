@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, send_file
 import requests
-from flask_mysqldb import MySQL
 import MySQLdb
 from flask_cors import CORS
 from docx import Document

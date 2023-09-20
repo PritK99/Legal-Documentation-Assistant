@@ -1,5 +1,4 @@
 # Legal-Documentation-Assistant
-
 ## Problem Statement
 
 Legal documentation can be a complicated and time-consuming process, especially for individuals and small businesses who may not have access to legal resources. In addition, the language and jargon used in legal documents can be difficult for non-lawyers to understand, which can lead to errors and misunderstandings. 
@@ -30,4 +29,97 @@ Deliverables:
 
 3. Code and documentation for the solution, along with instructions for deployment and maintenance. 
 
-Note: Participants are encouraged to consider the ethical implications of their solution and to prioritize data privacy and security.
+## Tech stack used
+
+- ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+- ![tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+- ![python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+
+- ![flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+
+- ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+
+## Setup
+
+- First, clone the repository into your system, and enter the repository in your terminal
+
+```
+git clone https://github.com/PritK99/Legal-Documentation-Assistant.git
+cd Legal-Documentation-Assistant/
+```
+
+- To start the client, run these commands
+
+```
+cd client/src/
+
+npm i
+
+npm run start
+```
+
+- To start the server, run these commands on a new terminal, at folder `Legal-Documentation-Server/`
+```
+cd server/
+
+pip install flask cors python-docx requests MySQLdb mammoth
+
+python3 app.py
+```
+
+## Screenshots of the Webpage
+
+- #### Home Page
+
+    ![home](./assets/image.png)
+
+- #### Documents Page
+
+    ![forms](./assets/image-1.png)
+
+- #### Dynamic form page (generated for the specific legal document)
+
+    ![dynamic forms](./assets/image-2.png)
+
+- #### Document Editor 
+
+    ![doc_editor](./assets/image-4.png)
+
+- #### Downloading the document
+
+    ![download](./assets/image-3.png)
+
+- #### Chatbot 
+
+    ![chatbot](./assets/image-6.png)
+
+- #### FAQ page
+
+    ![faq](./assets/image-7.png)
+
+- #### About Page
+
+    ![about_page](./assets/image-5.png)
+
+## Contributors
+
+- [Shardul Khade](https://github.com/shark-21)
+- [Mihir Rathod](https://github.com/m-g-rathod)
+- [Prit Kanadiya](https://github.com/PritK99)
+- [Devayani Chandane](https://github.com/devayani03)
+- [Kavan Gandhi](https://github.com/KGan31)
+- [Vedant Nimje](https://github.com/vrnimje)
+
+## References
+
+- [LawRato](https://lawrato.com/legal-documents), for the dataset of legal documents
+- [Botpress](https://botpress.com/), for building the AI-powered chatbot
+
+
+
+
+
+
+
