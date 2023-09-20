@@ -162,9 +162,9 @@ function Home() {
             style={{ fontFamily: '  "PT Sans", sans-serif' }}
           >
             Now seamlessly draft your legal documents without knowing any legal jargons. Just answer some easy questions and 
-            get your documents drafted with custom editable feature. We also have an AI Chatbot which will ask you simple questions and automatically draft
-            the document for you. 
-
+            get your documents drafted with custom editable feature. 
+            <br />
+            Not sure which document to choose? Ask our AI powered Chatbot!!
           </Typography>
         </div>
 
