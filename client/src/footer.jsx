@@ -17,7 +17,7 @@ const Footer = () => {
                 href="#"
                 className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
               >
-                1on1 Coaching
+                Legal Aid
               </a>
             </li>
 
