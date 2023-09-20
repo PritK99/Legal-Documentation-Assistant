@@ -122,7 +122,10 @@ function Navbar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <MobileNav open={openNav} style={{
+  backgroundColor: 'rgba(255, 255, 255, 0.95)', // Decreased opacity to 0.25
+  boxShadow: '0 0 10px 1px rgba(0, 0, 0, 0.25)',
+  backdropFilter: 'blur(15px)'}}>
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2">
             <span>Buy Now</span>
