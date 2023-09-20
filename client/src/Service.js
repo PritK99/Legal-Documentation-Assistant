@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Service.css";
 import Navbar from "./Navbar";
-import Progress from 'react-progressbar'
+import Progress from "react-progressbar";
 import ProgressBar from "@ramonak/react-progress-bar";
-
+import { StepContext } from "./context/StepContext";
 
 function Service() {
   const initialCards = [
@@ -21,6 +21,8 @@ function Service() {
   const [data, setData] = useState([]);
   const [serviceName, setServiceName] = useState("");
 
+  const context = useContext(StepContext);
+  
   const [selectedCategory, setSelectedCategory] = useState("");
   const categories = Array.from(
     new Set(initialCards.map((card) => card.category))
@@ -36,6 +38,12 @@ function Service() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    context.setStep1(false);
+    context.setStep2(false);
+    context.setStep3(false);
+    context.setStep4(false);
+    
     fetch(`http://127.0.0.1:5000/api/forms?service_id=${id}`, {
       method: "GET",
       headers: {
@@ -64,6 +72,10 @@ function Service() {
     }
   }, [data]);
 
+  const handleClick= () => {
+    context.setStep1(true);
+  }
+
   return (
     <div className="outer">
       <div className="absolute inset-0 overflow-hidden h-full">
@@ -84,7 +96,6 @@ function Service() {
       </div>
 
       <div className="serve w-full">
-          
         {/* <div className="right">
           
           <h2>Steps: </h2>
@@ -100,10 +111,10 @@ function Service() {
 
 
         </div> */}
-        
+
         <div className="cards mx-auto">
           <div className="cards mx-auto">
-  {/* <div style={{ display: 'flex', alignItems: 'center', marginTop: '50px' }}>
+            {/* <div style={{ display: 'flex', alignItems: 'center', marginTop: '50px' }}>
   <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'blue', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '1px' }}>
     1
   </div>
@@ -112,17 +123,36 @@ function Service() {
   </div>
 </div> */}
 
-<div style={{marginTop:'20px',display: 'flex', justifyContent: 'center'}}>
-<ul className="steps">
-  <li className="step step-primary" >Search Document</li>
-  <li className="step " style={{color:'white'}}>Fill information</li>
-  <li className="step " style={{color:'white'}}>Save document</li>
-  <li className="step" style={{color:'white'}}>Download document</li>
-
-</ul>
-</div>
-
-</div>
+            <div
+              className="my-7 flex justify-center"
+            >
+              <ul className="steps">
+                <li
+                  className={`step ${context.step1 ? "step-success" : ""} text-white font-semibold`}
+                >
+                  Select Legal Document
+                </li>
+                <li
+                  className={`step  ${context.step2 ? "step-success" : ""} text-white font-semibold`}
+                  style={{ color: "white" }}
+                >
+                  Fill information
+                </li>
+                <li
+                  className={`step  ${context.step3 ? "step-success" : ""} text-white font-semibold`}
+                  style={{ color: "white" }}
+                >
+                  Edit document
+                </li>
+                <li
+                  className={`step ${context.step4 ? "step-success" : ""} text-white font-semibold`}
+                  style={{ color: "white" }}
+                >
+                  Download document
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <div className="flex flex-col justify-center items-center ">
             <h1 className="text-4xl font-bold text-center  text-white mb-7 mt-3 ">
@@ -134,6 +164,7 @@ function Service() {
                   to={"/form/" + form.form_id}
                   className="card"
                   key={form.form_id}
+                  onClick={handleClick}
                 >
                   <div className="flex w-full mx-auto text-center">
                     <svg

@@ -10,23 +10,27 @@ import InputForm from "./InputForm";
 import Footer from "./footer";
 import Chatbot from "./chatbot";
 import Faq from "./Faq";
+import { ContextProvider } from "./context/StepContext";
+
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
+      <ContextProvider>
+        <Router>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/service/:id" element={<Service />} />
-          <Route path="/form/:id" element={<InputForm />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/faq" element={<Faq />} />
-        </Routes>
-      </Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/service/:id" element={<Service />} />
+            <Route path="/form/:id" element={<InputForm />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq />} />
+          </Routes>
+        </Router>
 
-      <Chatbot />
-      <Footer />
+        <Chatbot />
+        <Footer />
+      </ContextProvider>
     </>
   );
 }
