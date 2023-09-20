@@ -16,31 +16,27 @@ export function Faq() {
     <h1 class="mb-4 text-4xl font-extrabold justify-center flex leading-none tracking-tight text-gray-100 md:text-5xl lg:text-6xl ">FAQ's</h1>
       <div className=" rounded m-2 pt-12">
       <Accordion open={open === 1}>
-        <AccordionHeader className="justify-center flex text-gray-100" onClick={() => handleOpen(1)}>thode qts batao</AccordionHeader>
+        <AccordionHeader className="justify-center flex text-gray-100" onClick={() => handleOpen(1)}>What types of legal documents can an AI-powered generator create?</AccordionHeader>
         <AccordionBody  className="justify-center flex text-gray-100">
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+          The AI powered chatbot essentially helps user in navigating through the website according to the user&apos; requirement.
+          The chatbot will also automatically help you find legal help in your city by recommending list of laywers in required city.
+
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2}>
         <AccordionHeader className="justify-center flex text-gray-100" onClick={() => handleOpen(2)}>
-         More qts 
+        Do I need to be a lawyer to use an AI-powered legal document generator?
         </AccordionHeader>
         <AccordionBody  className="justify-center flex text-gray-100" >
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+          No. DocBuddy helps anyone with or without legal knowledge, genarate legal documents.
         </AccordionBody>
       </Accordion>
       <Accordion  open={open === 3}>
         <AccordionHeader className="justify-center flex text-gray-100" onClick={() => handleOpen(3)}>
-          more qts..
+        Is it safe to use an AI-powered legal document generator?
         </AccordionHeader>
         <AccordionBody  className="justify-center flex text-gray-100">
-          We&apos;re not always in the position that we want to be at. We&apos;re constantly
-          growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-          ourselves and actualize our dreams.
+        Yes. 
         </AccordionBody>
       </Accordion>
       </div>
