@@ -10,6 +10,7 @@ const Chatbot = () => {
     script.onload = () => {
       window.botpressWebChat.init({
        
+      
           "composerPlaceholder": "Ask your legal query",
           "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
           "botId": "42cc66eb-b6fb-44f8-9d2a-2b732298f460",
