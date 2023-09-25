@@ -136,7 +136,13 @@ function InputForm() {
   }, []);
 
   const handleQuillChange = (html) => {
-    context.setStep3(true);
+    context.setEdit((prev) => prev + 1);
+
+    if(context.edit > 1)
+    {
+      context.setStep3(true);
+    }
+    
     setContent(html);
   }
 

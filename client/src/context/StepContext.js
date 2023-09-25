@@ -14,10 +14,11 @@ export function ContextProvider({ children }) {
   const [step2, setStep2] = useState(false);
   const [step3, setStep3] = useState(false);
   const [step4, setStep4] = useState(false);
+  const [edit, setEdit] = useState(0);
 
   return (
     // passing the state as well as the setter functions 
-    <StepContext.Provider value={{ step1, setStep1, step2, setStep2, step3, setStep3, step4, setStep4 }}> 
+    <StepContext.Provider value={{ step1, setStep1, step2, setStep2, step3, setStep3, step4, setStep4, edit, setEdit }}> 
       {children}
     </StepContext.Provider>
   );
