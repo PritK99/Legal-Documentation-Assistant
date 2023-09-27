@@ -12,6 +12,7 @@ import Chatbot from "./chatbot";
 import Faq from "./Faq";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import Login from "./loginPage";
 import { ContextProvider } from "./context/StepContext";
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
             <Route path="/form/:id" element={<InputForm />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/login" element={<Login />} />
+
           </Routes>
           <ToastContainer/>
         </Router>

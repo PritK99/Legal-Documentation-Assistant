@@ -1,5 +1,5 @@
 // Navbar.js
-
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -12,7 +12,7 @@ import {
 
 function Navbar() {
   const [openNav, setOpenNav] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener(
       "resize",
@@ -20,6 +20,9 @@ function Navbar() {
     );
   }, []);
 
+    function handleLogin(){
+      navigate("/login");
+    }
 
     const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -77,6 +80,7 @@ function Navbar() {
              
               {navList}</div>
             <Button
+            onClick={handleLogin}
               variant="gradient"
               size="sm"
               className="hidden lg:inline-block"
