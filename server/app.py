@@ -29,6 +29,7 @@ def services():
     for result in rv:
         json_data.append(dict(zip(row_headers, result)))
     cur.close()
+    print(json_data)
     return jsonify(json_data)
 
 # Get forms of a particular service
