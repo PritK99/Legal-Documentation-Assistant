@@ -4,14 +4,17 @@ import MySQLdb
 from flask_cors import CORS
 from docx import Document
 import mammoth
+import psycopg2
 
 app = Flask(__name__)
 
 # Configure CORS to allow requests from React frontend
 cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
-db = MySQLdb.Connect(host="containers-us-west-78.railway.app", port=5480,
-                     user="root", passwd="F09DY9R7wJEsodY9LB1B", db="railway")
+# db = MySQLdb.Connect(host="containers-us-west-78.railway.app", port=5480,
+#                      user="root", passwd="F09DY9R7wJEsodY9LB1B", db="railway")
+db = psycopg2.connect(database='final_legal_documentation', user='final_legal_documentation_user',
+                        password='rD5Qgl3E9KKt31beFKepp5HJPpz8KwpZ', host='dpg-ckah8tcg66mc73falae0-a.oregon-postgres.render.com', port='5432')
 
 # Get all the services
 
