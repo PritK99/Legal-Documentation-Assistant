@@ -205,7 +205,7 @@ function Home() {
                           </h2>
                           <div className="flex justify-center mb-3 ">
                             <p className="text-lg font-normal text-black text-justify">
-                              {service.description}
+                              {service.desciption}
                             </p>
                           </div>
                         </div>
