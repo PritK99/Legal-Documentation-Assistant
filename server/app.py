@@ -14,7 +14,8 @@ cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 # db = MySQLdb.Connect(host="containers-us-west-78.railway.app", port=5480,
 #                      user="root", passwd="F09DY9R7wJEsodY9LB1B", db="railway")
 db = psycopg2.connect(database='final_legal_documentation', user='final_legal_documentation_user',
-                        password='rD5Qgl3E9KKt31beFKepp5HJPpz8KwpZ', host='dpg-ckah8tcg66mc73falae0-a.oregon-postgres.render.com', port='5432')
+                        password='rD5Qgl3E9KKt31beFKepp5HJPpz8KwpZ', host='dpg-ckah8tcg66mc73falae0-a.oregon-postgres.render.com', port='5432', keepalives=1, keepalives_idle=30,
+                        keepalives_interval=10, keepalives_count=5)
 
 # Get all the services
 
@@ -50,6 +51,7 @@ def get_forms():
     for result in rv:
         json_data.append(dict(zip(row_headers, result)))
     cur.close()
+    print(json_data)
     return jsonify(json_data)
 
 # Get all queries for a form
@@ -67,8 +69,13 @@ def get_form_details():
     json_data = []
     for result in rv:
         json_data.append(dict(zip(row_headers, result)))
-    cur.execute(
-        "SELECT * FROM input_ques WHERE ques_id IN (SELECT form_query_id FROM form_queries WHERE form_id = %s);", [form_id])
+    
+    cur.execute("SELECT * FROM ques_categories WHERE id IN (SELECT DISTINCT(category_id) FROM input_ques WHERE ques_id IN (SELECT form_query_id FROM form_queries WHERE form_id = %s));", [form_id])
+    row_headers = [x[0] for x in cur.description]
+    rv = cur.fetchall()
+    for result in rv:
+        json_data.append(dict(zip(row_headers, result)))
+    cur.execute("SELECT * FROM input_ques WHERE ques_id IN (SELECT form_query_id FROM form_queries WHERE form_id = %s);", [form_id])
     row_headers = [x[0] for x in cur.description]
     rv = cur.fetchall()
     for result in rv:
