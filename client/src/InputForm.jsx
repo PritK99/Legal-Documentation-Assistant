@@ -6,6 +6,13 @@ import * as quillToWord from "quill-to-word";
 import { toast } from "react-toastify";
 import "./InputForm.css";
 import { StepContext } from "./context/StepContext";
+import {
+  Tabs,
+  TabsHeader,
+  TabsBody,
+  Tab,
+  TabPanel,
+} from "@material-tailwind/react";
 
 function InputForm() {
   const { id } = useParams();
@@ -17,6 +24,10 @@ function InputForm() {
   const navigate = useNavigate();
   const context = useContext(StepContext);
   const [displayHome, setDisplayHome] = useState(false);
+
+  // state for getting the currently active category
+  const [activeCategory, setActiveCategory] = useState(1);
+  const [category, setCategory] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -113,7 +124,6 @@ function InputForm() {
       autoClose: 4000,
       hideProgressBar: false,
     });
-
   };
 
   useEffect(() => {
@@ -126,8 +136,16 @@ function InputForm() {
         return res.json();
       })
       .then((res) => {
+        var filteredObjects = res.filter((obj) =>
+          obj.hasOwnProperty("category_name")
+        );
+        setCategory(filteredObjects);
+        const arr = ["form_id", "category_id"];
+        filteredObjects = res.filter((obj) =>
+          arr.some((key) => obj.hasOwnProperty(key))
+        );
+        setData(filteredObjects);
         console.log(res);
-        setData(res);
         // console.log(data);
       })
       .catch((err) => {
@@ -135,26 +153,33 @@ function InputForm() {
       });
   }, []);
 
+  useEffect(() => {
+    console.log(data);
+    console.log(category);
+  }, [data, category]);
+
   const handleQuillChange = (html) => {
     context.setEdit((prev) => prev + 1);
 
-    if(context.edit > 1)
-    {
+    if (context.edit > 1) {
       context.setStep3(true);
     }
-    
+
     setContent(html);
-  }
+  };
 
   const navHome = () => {
     navigate("/");
-  }
+  };
+
+  const handleClick = (category) => {
+    console.log(category.id);
+    setActiveCategory(category.id);
+  };
 
   return (
     <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen">
-      <div
-        className="flex justify-center items-center pt-32 -mb-32"
-      >
+      <div className="flex justify-center items-center pt-32 -mb-32 pb-20">
         <ul className="steps">
           <li className="step step-success text-white font-semibold">
             Select Legal Document
@@ -186,43 +211,58 @@ function InputForm() {
 
       <div className="">
         {data.length > 0 && (
-          <h1 className="text-white font-bold text-4xl pt-48 text-center -mb-32">
+          <h1 className="text-white font-bold text-4xl pt-24 text-center -mb-24">
             {data[0].form_name}
           </h1>
         )}
-
         {displayForm ? (
+          
           <form onSubmit={handleSubmit}>
-            <div className="grid md:grid-cols-2 pt-40  p-10  ">
-              {data.map(
-                (ques, index) =>
-                  index !== 0 && (
-                    <div
-                      className="md:max-w-lg w-full pt-7 "
-                      key={ques.ques_id}
-                    >
-                      <label
-                        for="name"
-                        className="text-white text-lg font-bold"
-                      >
-                        {ques.ques_label}
-                      </label>
-                      <input
-                        type={ques.ques_type}
-                        name={ques.ques_id}
-                        className="w-full rounded-md border text-black border-gray-300 px-3 py-2"
-                        required
-                        style={{
-                          border: "1px solid rgba(255, 255, 255, .25)",
-                          backgroundColor: "rgba(255, 255, 255, 0.45)",
-                          boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
-                          backdropFilter: "blur(15px)",
-                        }}
-                      />
-                    </div>
-                  )
-              )}
-            </div>
+            <Tabs value="html" className="sm:px-10 px-2 pt-36 ">
+              <TabsHeader>
+                {category.length > 0 &&
+                  category.map((c, index) => (
+                    <Tab className="sm:mx-3 mx-1 text-lg font-normal" onClick={() => handleClick(c)} key={c.id} value={c.id}>
+                      {c.category_name}
+                    </Tab>
+                  ))}
+              </TabsHeader>
+              <TabsBody>
+                <div className="grid md:grid-cols-2  ">
+                  {data.map(
+                    (ques, index) =>
+                      index !== 0 &&
+                      ques.category_id === activeCategory && (
+                        <TabPanel key={ques.ques_id} value={ques.category_id}>
+                          <div
+                            className="md:max-w-lg w-full pt-7 "
+                            key={ques.ques_id}
+                          >
+                            <label
+                              for="name"
+                              className="text-white text-lg font-bold"
+                            >
+                              {ques.ques_label}
+                            </label>
+                            <input
+                              type={ques.ques_type}
+                              name={ques.ques_id}
+                              className="w-full rounded-md border text-black border-gray-300 px-3 py-2"
+                              required
+                              style={{
+                                border: "1px solid rgba(255, 255, 255, .25)",
+                                backgroundColor: "rgba(255, 255, 255, 0.45)",
+                                boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
+                                backdropFilter: "blur(15px)",
+                              }}
+                            />
+                          </div>
+                        </TabPanel>
+                      )
+                  )}
+                </div>
+              </TabsBody>
+            </Tabs>
 
             <div className="flex justify-center w-full p-7 ">
               <button
@@ -235,7 +275,9 @@ function InputForm() {
           </form>
         ) : (
           <div className="px-28 mt-48">
-            <h1 className="text-white font-bold text-2xl text-center mb-3">Edit Document</h1>
+            <h1 className="text-white font-bold text-2xl text-center mb-3">
+              Edit Document
+            </h1>
             <ReactQuill
               theme="snow"
               value={content}
@@ -251,12 +293,14 @@ function InputForm() {
               >
                 Save
               </button>
-              {displayHome && <button
-                onClick={navHome}
-                className="p-4 ml-7 text-lg font-bold text-white rounded bg-red-300 transform transition ease-in-out hover:scale-90 duration-150 my-11"
-              >
-                Home
-              </button>}
+              {displayHome && (
+                <button
+                  onClick={navHome}
+                  className="p-4 ml-7 text-lg font-bold text-white rounded bg-red-300 transform transition ease-in-out hover:scale-90 duration-150 my-11"
+                >
+                  Home
+                </button>
+              )}
             </div>
           </div>
         )}
