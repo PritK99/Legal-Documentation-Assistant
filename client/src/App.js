@@ -13,6 +13,7 @@ import Faq from "./Faq";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import Login from "./loginPage";
+import Signup from "./signup";
 import { ContextProvider } from "./context/StepContext";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/login" element={<Login />} />
-
+            <Route path="/signup" element={<Signup />} />
           </Routes>
           <ToastContainer/>
         </Router>
