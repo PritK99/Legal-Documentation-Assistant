@@ -12,7 +12,7 @@ const Chatbot = () => {
        
       
         "composerPlaceholder": "Ask your legal query",
-      "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+      "botConversationDescription": "",
       "botId": "42cc66eb-b6fb-44f8-9d2a-2b732298f460",
       "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
       "messagingUrl": "https://messaging.botpress.cloud",
