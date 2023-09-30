@@ -29,16 +29,19 @@ function InputForm() {
   const [activeCategory, setActiveCategory] = useState(1);
   const [category, setCategory] = useState([]);
 
+  const [form_data, setForm_data] = useState({});
+
   const handleSubmit = (event) => {
     event.preventDefault();
     window.scrollTo(0, 0);
     context.setStep2(true);
     // context.setStep3(true);
-    const formData = new FormData(event.target);
+    // const formData = new FormData(event.target);
 
     // console.log(formData);
     // formData.push(data[0].form_id);
-    const formDataObj = Object.fromEntries(formData.entries());
+    // const formDataObj = Object.fromEntries(formData.entries());
+    var formDataObj = form_data;
     formDataObj.form_id = data[0].form_id;
     // formData.push(data[0].form_id)
     const formDataJsonString = JSON.stringify(formDataObj);
@@ -145,7 +148,16 @@ function InputForm() {
           arr.some((key) => obj.hasOwnProperty(key))
         );
         setData(filteredObjects);
-        console.log(res);
+        const obj = {};
+        
+
+        for(let i = 1; i < filteredObjects.length; i++)
+        {
+          obj[filteredObjects[i].ques_id] = "";
+        }
+
+        setForm_data(obj);
+        console.log(obj);
         // console.log(data);
       })
       .catch((err) => {
@@ -154,9 +166,9 @@ function InputForm() {
   }, []);
 
   useEffect(() => {
-    console.log(data);
-    console.log(category);
-  }, [data, category]);
+    // console.log(data);
+    console.log(form_data);
+  }, [data, category, form_data]);
 
   const handleQuillChange = (html) => {
     context.setEdit((prev) => prev + 1);
@@ -176,6 +188,13 @@ function InputForm() {
     console.log(category.id);
     setActiveCategory(category.id);
   };
+
+  const handleChange = (e, ques) =>{
+    var obj = form_data;
+    obj[ques.ques_id] = e.target.value;
+    setForm_data(obj)
+    console.log(obj)
+  }
 
   return (
     <div className="form1 bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen">
@@ -218,7 +237,8 @@ function InputForm() {
         {displayForm ? (
           
           <form onSubmit={handleSubmit}>
-            <Tabs value="html" className="sm:px-10 px-2 pt-36 ">
+            <Tabs value={1} className="sm:px-10 px-2 pt-36 ">
+              
               <TabsHeader>
                 {category.length > 0 &&
                   category.map((c, index) => (
@@ -228,6 +248,7 @@ function InputForm() {
                   ))}
               </TabsHeader>
               <TabsBody>
+              
                 <div className="grid md:grid-cols-2  ">
                   {data.map(
                     (ques, index) =>
@@ -255,15 +276,18 @@ function InputForm() {
                                 boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
                                 backdropFilter: "blur(15px)",
                               }}
+                              onChange={(e) => handleChange(e, ques) }
+                              defaultValue = {Object.keys(form_data).length > 0 && Object.keys(ques).length > 0 ? form_data[ques.ques_id] : ""} 
                             />
                           </div>
                         </TabPanel>
                       )
                   )}
                 </div>
+                
               </TabsBody>
+              
             </Tabs>
-
             <div className="flex justify-center w-full p-7 ">
               <button
                 type="submit"
@@ -273,6 +297,7 @@ function InputForm() {
               </button>
             </div>
           </form>
+           
         ) : (
           <div className="px-28 mt-48">
             <h1 className="text-white font-bold text-2xl text-center mb-3">
