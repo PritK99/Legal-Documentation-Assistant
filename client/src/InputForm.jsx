@@ -285,7 +285,6 @@ function InputForm() {
                                 boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
                                 backdropFilter: "blur(15px)",
                               }}
-                              onChange={(e) => handleInputChange(e) }
                               defaultValue = {Object.keys(formData).length > 0 && Object.keys(ques).length > 0 ? formData[ques.ques_id] : ""} 
                             />
                           </div>
