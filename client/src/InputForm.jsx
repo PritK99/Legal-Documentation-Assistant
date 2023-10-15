@@ -285,8 +285,6 @@ function InputForm() {
                                 boxShadow: "0 0 10px 1px rgba(0, 0, 0, 0.25)",
                                 backdropFilter: "blur(15px)",
                               }}
-                              onChange={(e) => handleChange(e, ques) }
-                              defaultValue = {Object.keys(form_data).length > 0 && Object.keys(ques).length > 0 ? form_data[ques.ques_id] : ""} 
                             />
                           </div>
                         </TabPanel>
