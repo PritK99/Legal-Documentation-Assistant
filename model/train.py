@@ -52,11 +52,11 @@ X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 
 # configuration
-num_epochs = 1000
+num_epochs = 500
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 input_size = len(X_train[0])
 output_size = len(labels)
-hidden_size = 512
+hidden_size = [256, 128]
 learning_rate = 0.001
 batch_size = 8
 
@@ -68,15 +68,14 @@ train_loader = DataLoader(dataset=dataset,
 
 model = Chatbot(input_size, hidden_size, output_size).to(device)
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameter(), lr=learning_rate)
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
         labels = labels.to(device)
-
-        output = model(words)
-        loss = criterion(output, labels)
+        outputs = model(words.float())
+        loss = criterion(outputs, labels.type(torch.LongTensor))
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
