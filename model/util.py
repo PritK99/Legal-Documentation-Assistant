@@ -1,3 +1,4 @@
+import numpy as np
 import nltk
 nltk.download('punkt')
 from nltk.stem.porter import PorterStemmer
@@ -10,8 +11,12 @@ def tokenize(sentence):
 def stemming(words):
     return [stemmer.stem(word.lower()) for word in words]
 
-if __name__ == "__main__":
-    input = "Hello from the custom bot organized"
-    tokenized_input = tokenize(input)
-    stemmed_input = stemming(tokenized_input)
-    print(stemmed_input)
+def bag_of_words(input_words, all_words):
+    bag = np.zeros(len(all_words))
+    for input_word in input_words:
+        for idx, all_word in enumerate(all_words):
+            if (input_word == all_word):
+                bag[idx]=1
+                break
+    
+    return bag
