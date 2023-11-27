@@ -22,3 +22,5 @@ def bag_of_words(input_words, all_words):
                 break
     
     return bag
+
+print(bag_of_words(["hello", "how", "are", "you"],["hi", "hello", "I", "you", "bye", "thank", "cool"]))

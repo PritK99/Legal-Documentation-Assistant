@@ -6,8 +6,10 @@ class Chatbot(nn.Module):
         super().__init__()
         self.model = nn.Sequential(
             nn.Linear(input_size, hidden_size[0]),
+            nn.BatchNorm1d(hidden_size[0]),
             nn.ReLU(),
             nn.Linear(hidden_size[0], hidden_size[1]),
+            nn.BatchNorm1d(hidden_size[1]),
             nn.ReLU(),
             nn.Linear(hidden_size[1], output_size),
         )
