@@ -81,9 +81,9 @@ for epoch in range(num_epochs):
         optimizer.step()
 
     if (epoch % 100) == 0:
-        print(f"epoch {epoch+1}/{num_epochs}: loss={loss.item():.4f}")
+        print(f"epoch {epoch+1}/{num_epochs}: loss={loss.item()}")
 
-print(f"completed {num_epochs}: loss={loss.item():.4f}")
+print(f"completed {num_epochs}: loss={loss.item()}")
 
 data = {
 "model_state": model.state_dict(),
