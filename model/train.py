@@ -1,9 +1,11 @@
 import json
-from utils import tokenize, stemming
+import numpy as np
+from utils import tokenize, stemming, bag_of_words
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from model import Chatbot
+from dataset import ChatDataset
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -35,47 +37,65 @@ labels = sorted(set(labels))
 
 print(len(xy), "pairs")
 print(len(labels), "labels:", labels)
-print(len(data), "unique stemmed words:", data)
+print(len(data), "unique words:", data)
 
-# # configuration
-# num_epochs = 0
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# input_size = 0
-# output_size = 0
-# hidden_size = 0
-# learning_rate = 0.001
+X_train = []
+Y_train = []
 
-# model = Chatbot(input_size, hidden_size, output_size).to(device)
-# criterion = nn.CrossEntropyLoss()
-# optimizer = torch.optim.Adam(model.parameter(), lr=learning_rate)
+for (filtered_words, tag) in xy:
+    bag = bag_of_words(filtered_words, data)
+    X_train.append(bag)
+    label = labels.index(tag)
+    Y_train.append(label)
 
-# for epoch in range(num_epochs):
-#     for (words, labels) in train_loader:
-#         words = words.to(device)
-#         labels = labels.to(device)
+X_train = np.array(X_train)
+Y_train = np.array(Y_train)
 
-#         output = model(words)
-#         loss = criterion(output, labels)
-#         optimizer.zero_grad()
-#         loss.backward()
-#         optimizer.step()
+# configuration
+num_epochs = 1000
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+input_size = len(X_train[0])
+output_size = len(labels)
+hidden_size = 512
+learning_rate = 0.001
+batch_size = 8
 
-#     if (epoch % 100) == 0:
-#         print(f"epoch {epoch+1}/{num_epochs}: loss={loss.item():.4f}")
+dataset = ChatDataset(X_train, Y_train)
+train_loader = DataLoader(dataset=dataset,
+                          batch_size=batch_size,
+                          shuffle=True,
+                          num_workers=0)
 
-# print(f"completed {num_epochs}: loss={loss.item():.4f}")
+model = Chatbot(input_size, hidden_size, output_size).to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameter(), lr=learning_rate)
 
-# data = {
-# "model_state": model.state_dict(),
-# "input_size": input_size,
-# "hidden_size": hidden_size,
-# "output_size": output_size,
-# "all_words": all_words,
-# "tags": tags
-# }
+for epoch in range(num_epochs):
+    for (words, labels) in train_loader:
+        words = words.to(device)
+        labels = labels.to(device)
 
-# save_path = 'trained_model.pth'
-# torch.save(data, save_path)
+        output = model(words)
+        loss = criterion(output, labels)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-# print(f"Training Complete. Weights saved at {save_path}")
+    if (epoch % 100) == 0:
+        print(f"epoch {epoch+1}/{num_epochs}: loss={loss.item():.4f}")
 
+print(f"completed {num_epochs}: loss={loss.item():.4f}")
+
+data = {
+"model_state": model.state_dict(),
+"input_size": input_size,
+"hidden_size": hidden_size,
+"output_size": output_size,
+"data": data,
+"labels": labels
+}
+
+save_path = 'trained_model.pth'
+torch.save(data, save_path)
+
+print(f"Training Complete. Weights saved at {save_path}")
