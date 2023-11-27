@@ -52,7 +52,7 @@ X_train = np.array(X_train)
 Y_train = np.array(Y_train)
 
 # configuration
-num_epochs = 500
+num_epochs = 5000
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 input_size = len(X_train[0])
 output_size = len(labels)
