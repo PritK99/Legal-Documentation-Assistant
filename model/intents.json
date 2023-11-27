@@ -81,7 +81,7 @@
                 "Can you help me to file a lawsuit against the issuer of a bounced cheque?",
                 "Can you help me to draft a demand letter to a debtor requesting payment?",
                 "Can you help me to draft a letter to my bank requesting a refund of overdraft fees?",
-                "Create a mortgage contract for a loan of $200,000 with Person."
+                "Create a mortgage contract for a loan with Person."
             ],
             "responses": [
                 "Please refer Banking and Finance documents section"
