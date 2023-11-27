@@ -1,9 +1,11 @@
 import json
 from utils import tokenize, stemming
 import torch
-from torch.nn import nn
+import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from model import Chatbot
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 with open("intents.json", 'r') as f:
@@ -19,15 +21,21 @@ for intent in intents['intents']:
     tag = intent['tag']
     labels.append(tag)
 
-    for pattern in intent['pattern']:
+    for pattern in intent['patterns']:
+        # print(pattern)
         word_tokens = tokenize(pattern)
+        word_tokens = stemming(word_tokens)
         filtered_words = [w for w in word_tokens if not w.lower() in stop_words]
+        print(filtered_words)
         data.extend(filtered_words)
         xy.append((filtered_words, tag))
 
-print(len(xy), "patterns")
+data = sorted(set(data))
+labels = sorted(set(labels))
+
+print(len(xy), "pairs")
 print(len(labels), "labels:", labels)
-print(len(filtered_words), "unique stemmed words:", filtered_words)
+print(len(data), "unique stemmed words:", data)
 
 # # configuration
 # num_epochs = 0
