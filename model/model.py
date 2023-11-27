@@ -13,4 +13,4 @@ class Chatbot(nn.Module):
         )
 
     def forward(self, x):
-        self.model(x)
+        return self.model(x)
