@@ -47,23 +47,19 @@
         {
             "tag": "Family Affairs",
             "patterns": [
-                "Assist me in obtaining divorce papers for my divorce from Spouse's Name.",
+                "I want a divorce",
                 "I require guidance on child custody arrangements. Can you help?",
                 "How can I establish alimony payments after my divorce from Spouse's Name?",
                 "What are the legal requirements for spousal support in Your State?",
                 "Assist me in setting up child support payments for Child's Name.",
-                "I'm looking to create a prenuptial agreement before marrying Spouse's Name. Can you provide a template?",
                 "Explain the annulment process and what's required to file for it.",
                 "How should I address domestic violence issues legally?",
                 "What should I know about family court procedures in Your Jurisdiction?",
                 "Provide guidance on legal separation agreements for Your Name and Spouse's Name.",
                 "I'm interested in understanding the adoption process in Your Country.",
                 "Help me establish guardianship for Minor's Name.",
-                "What elements should be included in a custody agreement for Child's Name?",
                 "Explain the concept of visitation rights in the context of child custody.",
-                "Tell me about family mediation services and how they work.",
-                "What should I know about joint custody arrangements for Child's Name?",
-                "Guide me through the process of property settlement during a divorce."
+                "Property settlement during a divorce."
             ],
             "responses": [
                 "Please refer Family Affairs documents section"
@@ -81,7 +77,7 @@
                 "Can you help me to file a lawsuit against the issuer of a bounced cheque?",
                 "Can you help me to draft a demand letter to a debtor requesting payment?",
                 "Can you help me to draft a letter to my bank requesting a refund of overdraft fees?",
-                "Create a mortgage contract for a loan of $200,000 with Person."
+                "Create a mortgage contract for a loan with Person."
             ],
             "responses": [
                 "Please refer Banking and Finance documents section"
