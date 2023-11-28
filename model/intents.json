@@ -1,0 +1,103 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
+                "Hi, I am you legal assistant chatbot. How may I help you?",
+                "Hello, how can I help you?",
+                "Hi there, what can I do for you?",
+                "Hi there, how can I help?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye"
+            ],
+            "responses": [
+                "See you later, thanks for consulting",
+                "Have a nice day",
+                "Bye!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That's helpful",
+                "Thank's a lot!"
+            ],
+            "responses": [
+                "Happy to help! Is there anything else I can help you with?",
+                "Any time! Is there anything else I can help you with?",
+                "My pleasure! Is there anything else I can help you with?"
+            ]
+        },
+        {
+            "tag": "Family Affairs",
+            "patterns": [
+                "divorce",
+                "guidance",
+                "child custody arrangements",
+                "alimony payments",
+                "legal requirements",
+                "spousal support",
+                "child support payments",
+                "annulment process",
+                "domestic violence issues",
+                "family court procedures",
+                "legal separation agreements",
+                "adoption process",
+                "guardianship",
+                "concept of visitation rights",
+                "Property settlement"
+            ],
+            "responses": [
+                "Please refer Family Affairs documents section"
+            ]
+        },
+        {
+            "tag": "Banking and Finance",
+            "patterns": [
+                "loan agreement",
+                "lakh loan",
+                "Person",
+                "mortgage application",
+                "property",
+                "Property Address",
+                "security deposit agreement",
+                "rental property",
+                "last will and testament",
+                "assets",
+                "Guide",
+                "process",
+                "filling out",
+                "lawsuit",
+                "issuer",
+                "bounced cheque",
+                "demand letter",
+                "debtor",
+                "payment",
+                "letter",
+                "bank",
+                "refund",
+                "overdraft fees",
+                "mortgage contract"
+            ],
+            "responses": [
+                "Please refer Banking & Finance Documents section"
+            ]
+        }
+    ]
+}
