@@ -47,19 +47,21 @@
         {
             "tag": "Family Affairs",
             "patterns": [
-                "I want a divorce",
-                "I require guidance on child custody arrangements. Can you help?",
-                "How can I establish alimony payments after my divorce from Spouse's Name?",
-                "What are the legal requirements for spousal support in Your State?",
-                "Assist me in setting up child support payments for Child's Name.",
-                "Explain the annulment process and what's required to file for it.",
-                "How should I address domestic violence issues legally?",
-                "What should I know about family court procedures in Your Jurisdiction?",
-                "Provide guidance on legal separation agreements for Your Name and Spouse's Name.",
-                "I'm interested in understanding the adoption process in Your Country.",
-                "Help me establish guardianship for Minor's Name.",
-                "Explain the concept of visitation rights in the context of child custody.",
-                "Property settlement during a divorce."
+                "divorce",
+                "guidance",
+                "child custody arrangements",
+                "alimony payments",
+                "legal requirements",
+                "spousal support",
+                "child support payments",
+                "annulment process",
+                "domestic violence issues",
+                "family court procedures",
+                "legal separation agreements",
+                "adoption process",
+                "guardianship",
+                "concept of visitation rights",
+                "Property settlement"
             ],
             "responses": [
                 "Please refer Family Affairs documents section"
@@ -68,19 +70,33 @@
         {
             "tag": "Banking and Finance",
             "patterns": [
-                "I need a loan agreement for a lakh loan with Person. Can you help with that?",
-                "Assist me in creating a mortgage application for a property located at Property Address.",
-                "Can you draft a security deposit agreement for a rental property at Property Address?",
-                "Draft a last will and testament for Person to specify the distribution of assets.",
-                "Guide me through the process of filling out a mortgage application for Property Address?",
-                "Can you draft a security deposit agreement for a rental property located at Property Address?",
-                "Can you help me to file a lawsuit against the issuer of a bounced cheque?",
-                "Can you help me to draft a demand letter to a debtor requesting payment?",
-                "Can you help me to draft a letter to my bank requesting a refund of overdraft fees?",
-                "Create a mortgage contract for a loan with Person."
+                "loan agreement",
+                "lakh loan",
+                "Person",
+                "mortgage application",
+                "property",
+                "Property Address",
+                "security deposit agreement",
+                "rental property",
+                "last will and testament",
+                "assets",
+                "Guide",
+                "process",
+                "filling out",
+                "lawsuit",
+                "issuer",
+                "bounced cheque",
+                "demand letter",
+                "debtor",
+                "payment",
+                "letter",
+                "bank",
+                "refund",
+                "overdraft fees",
+                "mortgage contract"
             ],
             "responses": [
-                "Please refer Banking and Finance documents section"
+                "Please refer Banking & Finance Documents section"
             ]
         }
     ]
