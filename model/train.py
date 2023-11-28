@@ -1,70 +1,63 @@
 import numpy as np
-import random
 import json
-
 import torch
+import nltk
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from dataset import ChatDataset
+nltk.download('stopwords')
+from nltk.corpus import stopwords
 
+from dataset import ChatDataset
 from utils import bag_of_words, tokenize, stemming
 from model import Chatbot
+
+stop_words = set(stopwords.words('english'))
 
 with open('intents.json', 'r') as f:
     intents = json.load(f)
 
-all_words = []
+words = []
 tags = []
-xy = []
-# loop through each sentence in our intents patterns
+pairs = []
+
 for intent in intents['intents']:
     tag = intent['tag']
-    # add to tag list
     tags.append(tag)
     for pattern in intent['patterns']:
-        # tokenize each word in the sentence
-        w = tokenize(pattern)
-        # add to our words list
-        all_words.extend(w)
-        # add to xy pair
-        xy.append((w, tag))
+        word = tokenize(pattern)
+        filtered_words = [w for w in word if not w.lower() in stop_words]
+        words.extend(filtered_words)
+        pairs.append((filtered_words, tag))
 
-# stem and lower each word
-ignore_words = ['?', '.', '!']
-all_words = stemming(all_words)
-all_words = [w for w in all_words if w not in ignore_words]
-# remove duplicates and sort
-all_words = sorted(set(all_words))
+
+words = stemming(words)
+words = sorted(set(words))
 tags = sorted(set(tags))
 
-print(len(xy), "patterns")
-print(len(tags), "tags:", tags)
-print(len(all_words), "unique stemmed words:", all_words)
+print(len(pairs), "pairs of training data")
+print(len(tags), "unique tags:", tags)
+print(len(words), "unique preprocessed words:", words)
 
-# create training data
 X_train = []
-y_train = []
-for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
-    bag = bag_of_words(pattern_sentence, all_words)
+Y_train = []
+for (input, tag) in pairs:
+    bag = bag_of_words(input, words)
     X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
     label = tags.index(tag)
-    y_train.append(label)
+    Y_train.append(label)
 
 X_train = np.array(X_train)
-y_train = np.array(y_train)
+Y_train = np.array(Y_train)
 
-# Hyper-parameters 
-num_epochs = 500
-batch_size = 8
+num_epochs = 1000
+batch_size = 4
 learning_rate = 0.001
-input_size = len(X_train[0])
+input_size = len(words)
 hidden_size = [128, 64]
 output_size = len(tags)
 print(input_size, output_size)
 
-dataset = ChatDataset(X_train, y_train)
+dataset = ChatDataset(X_train, Y_train)
 train_loader = DataLoader(dataset=dataset,
                           batch_size=batch_size,
                           shuffle=True,
@@ -74,39 +67,33 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = Chatbot(input_size, hidden_size, output_size).to(device)
 
-# Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train the model
 for epoch in range(num_epochs):
-    for (words, labels) in train_loader:
-        words = words.to(device)
+    for (x, labels) in train_loader:
+        x = x.to(device)
         labels = labels.to(dtype=torch.long).to(device)
         
-        # Forward pass
-        outputs = model(words)
-        # if y would be one-hot, we must apply
-        # labels = torch.max(labels, 1)[1]
+        outputs = model(x)
         loss = criterion(outputs, labels)
-        
-        # Backward and optimize
+
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         
     if (epoch+1) % 100 == 0:
-        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        print (f'Completing epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
 
 
-print(f'final loss: {loss.item():.4f}')
+print(f'Final loss: {loss.item():.4f}')
 
 data = {
 "model_state": model.state_dict(),
 "input_size": input_size,
 "hidden_size": hidden_size,
 "output_size": output_size,
-"all_words": all_words,
+"words": words,
 "tags": tags
 }
 
