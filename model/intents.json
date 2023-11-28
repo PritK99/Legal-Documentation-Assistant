@@ -11,8 +11,8 @@
                 "Good day"
             ],
             "responses": [
-                "Hey :-)",
-                "Hello, thanks for visiting",
+                "Hi, I am you legal assistant chatbot. How may I help you?",
+                "Hello, how can I help you?",
                 "Hi there, what can I do for you?",
                 "Hi there, how can I help?"
             ]
@@ -25,9 +25,9 @@
                 "Goodbye"
             ],
             "responses": [
-                "See you later, thanks for visiting",
+                "See you later, thanks for consulting",
                 "Have a nice day",
-                "Bye! Come back again soon."
+                "Bye!"
             ]
         },
         {
@@ -39,58 +39,52 @@
                 "Thank's a lot!"
             ],
             "responses": [
-                "Happy to help!",
-                "Any time!",
-                "My pleasure"
+                "Happy to help! Is there anything else I can help you with?",
+                "Any time! Is there anything else I can help you with?",
+                "My pleasure! Is there anything else I can help you with?"
             ]
         },
         {
-            "tag": "items",
+            "tag": "Family Affairs",
             "patterns": [
-                "Which items do you have?",
-                "What kinds of items are there?",
-                "What do you sell?"
+                "Assist me in obtaining divorce papers for my divorce from Spouse's Name.",
+                "I require guidance on child custody arrangements. Can you help?",
+                "How can I establish alimony payments after my divorce from Spouse's Name?",
+                "What are the legal requirements for spousal support in Your State?",
+                "Assist me in setting up child support payments for Child's Name.",
+                "I'm looking to create a prenuptial agreement before marrying Spouse's Name. Can you provide a template?",
+                "Explain the annulment process and what's required to file for it.",
+                "How should I address domestic violence issues legally?",
+                "What should I know about family court procedures in Your Jurisdiction?",
+                "Provide guidance on legal separation agreements for Your Name and Spouse's Name.",
+                "I'm interested in understanding the adoption process in Your Country.",
+                "Help me establish guardianship for Minor's Name.",
+                "What elements should be included in a custody agreement for Child's Name?",
+                "Explain the concept of visitation rights in the context of child custody.",
+                "Tell me about family mediation services and how they work.",
+                "What should I know about joint custody arrangements for Child's Name?",
+                "Guide me through the process of property settlement during a divorce."
             ],
             "responses": [
-                "We sell coffee and tea",
-                "We have coffee and tea"
+                "Please refer Family Affairs documents section"
             ]
         },
         {
-            "tag": "payments",
+            "tag": "Banking and Finance",
             "patterns": [
-                "Do you take credit cards?",
-                "Do you accept Mastercard?",
-                "Can I pay with Paypal?",
-                "Are you cash only?"
+                "I need a loan agreement for a lakh loan with Person. Can you help with that?",
+                "Assist me in creating a mortgage application for a property located at Property Address.",
+                "Can you draft a security deposit agreement for a rental property at Property Address?",
+                "Assist me in drafting a last will and testament for Person to specify the distribution of assets.",
+                "Guide me through the process of filling out a mortgage application for Property Address?",
+                "Can you draft a security deposit agreement for a rental property located at Property Address?",
+                "Can you help me to file a lawsuit against the issuer of a bounced cheque?",
+                "Can you help me to draft a demand letter to a debtor requesting payment?",
+                "Can you help me to draft a letter to my bank requesting a refund of overdraft fees?",
+                "Create a mortgage contract for a loan of $200,000 with Person."
             ],
             "responses": [
-                "We accept VISA, Mastercard and Paypal",
-                "We accept most major credit cards, and Paypal"
-            ]
-        },
-        {
-            "tag": "delivery",
-            "patterns": [
-                "How long does delivery take?",
-                "How long does shipping take?",
-                "When do I get my delivery?"
-            ],
-            "responses": [
-                "Delivery takes 2-4 days",
-                "Shipping takes 2-4 days"
-            ]
-        },
-        {
-            "tag": "funny",
-            "patterns": [
-                "Tell me a joke!",
-                "Tell me something funny!",
-                "Do you know a joke?"
-            ],
-            "responses": [
-                "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-                "What did the buffalo say when his son left for college? Bison."
+                "Please refer Banking and Finance documents section"
             ]
         }
     ]
