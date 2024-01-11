@@ -10,11 +10,12 @@ import InputForm from "./InputForm";
 import Footer from "./footer";
 import Chatbot from "./chatbot";
 import Faq from "./Faq";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Login from "./loginPage";
 import Signup from "./signup";
 import { ContextProvider } from "./context/StepContext";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -31,11 +32,12 @@ function App() {
             <Route path="/faq" element={<Faq />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            {/* <Route path="/chat" element={<Chat />} /> */}
           </Routes>
-          <ToastContainer/>
+          <ToastContainer />
         </Router>
 
-        <Chatbot />
+        <Chat />
         <Footer />
       </ContextProvider>
     </>
