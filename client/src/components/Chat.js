@@ -22,7 +22,6 @@ function Chat() {
       addChat(d);
       setInput("");
     }
-    setFetching(true);
 
     const data = {
       user_chat: input,
