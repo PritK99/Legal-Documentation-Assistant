@@ -7,6 +7,13 @@ import mammoth
 import psycopg2
 from dotenv import load_dotenv
 import os   
+import sys
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
+from model.bot import get_response
 
 # Load environment variables from .env file
 load_dotenv()
