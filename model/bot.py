@@ -19,7 +19,7 @@ def get_response(sentence):
     with open(file_path, 'r') as json_data:
         intents = json.load(json_data)
 
-    save_path = "trained_model.pth"
+    save_path = os.path.join(os.path.dirname(__file__), 'trained_model.pth')
     data = torch.load(save_path)
 
     input_size = data["input_size"]
