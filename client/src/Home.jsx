@@ -51,7 +51,7 @@ function Home() {
         return res.json();
       })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setData(res);
         // console.log(data);
       })
@@ -205,7 +205,7 @@ function Home() {
                           </h2>
                           <div className="flex justify-center mb-3 ">
                             <p className="text-lg font-normal text-black text-justify">
-                              {service.desciption}
+                              {service.description}
                             </p>
                           </div>
                         </div>
