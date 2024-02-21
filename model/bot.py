@@ -15,7 +15,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def get_response(sentence):
 
-    with open('intents.json', 'r') as json_data:
+    file_path = os.path.join(os.path.dirname(__file__), 'intents.json')
+    with open(file_path, 'r') as json_data:
         intents = json.load(json_data)
 
     save_path = "trained_model.pth"
