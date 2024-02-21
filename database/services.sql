@@ -1,11 +1,11 @@
 CREATE TABLE services (
     service_id INT PRIMARY KEY,
     service_name VARCHAR(50),
-    desciption VARCHAR(500),
+    description VARCHAR(500),
     img_link VARCHAR(300)
 );
 
-INSERT INTO services (service_name, desciption, img_link) VALUES 
+INSERT INTO services (service_name, description, img_link) VALUES 
 ("Contract Documents", "Legal contracts serve as the backbone of countless business and personal transactions, providing a formal framework for defining rights, obligations, and responsibilities between parties involved. ", "https://res.cloudinary.com/dgi53xxbd/image/upload/v1694875757/sih_legal_docs/contract_img_ync08t.jpg"), 
 ("Trademark & Copyright Documents", "A trademark is a word or a visual symbol used by a business to differentiate its goods or services from those of other businesses that offer similar goods or services. A copyright is a right given to the creators of literary, musical, dramatic, artistic works, and the producers of cinematograph films and sound recordings. ", "https://res.cloudinary.com/dgi53xxbd/image/upload/v1694875997/sih_legal_docs/tm_copyright_img_hd7o0e.jpg"), 
 ("Banking/Finance Documents", "In India, the banking and finance sector operates under a comprehensive legal framework that governs various aspects of financial services, institutions, and transactions. These laws are essential to ensure the stability, transparency, and integrity of the financial system.", "https://res.cloudinary.com/dgi53xxbd/image/upload/v1694876340/sih_legal_docs/banking_img_lcll8x.jpg"), 
