@@ -23,7 +23,7 @@ function App() {
       <ContextProvider>
         <Router>
           <Navbar />
-
+          <Chat />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/service/:id" element={<Service />} />
@@ -37,7 +37,7 @@ function App() {
           <ToastContainer />
         </Router>
 
-        <Chat />
+        
         <Footer />
       </ContextProvider>
     </>
