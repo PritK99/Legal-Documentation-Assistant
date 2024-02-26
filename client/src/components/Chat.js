@@ -1,15 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Chat() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
 
   const [chats, setChats] = useState([]);
+  const chatContainerRef = useRef(null);
 
   const addChat = (message) => {
     setChats((prevChats) => [...prevChats, message]);
   };
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [chats]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,7 +93,7 @@ function Chat() {
             </svg>
           </button>
         ) : (
-          <div className="fixed bottom-[calc(2rem+1.5rem)] right-0  bg-black  rounded-lg border border-[#e5e7eb] w-[440px] h-[500px] overflow-y-auto z-50">
+          <div className={`fixed bottom-[calc(2rem+1.5rem)] right-0  bg-black  rounded-lg border border-[#e5e7eb] w-[440px] h-[500px] overflow-y-auto z-50 ${open ? 'scroll-smooth' : ''}`} ref={chatContainerRef}>
             <div className="sticky top-0 z-20 bg-black py-3 px-3">
               <div className="flex justify-between items-center space-y-1.5 rounded-md px-2 py-3 bg-[#4169E1]">
                 <div className="flex gap-3 items-center ml-2">
