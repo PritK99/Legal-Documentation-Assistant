@@ -75,7 +75,7 @@ def get_form_details():
     form_id = request.args.get('form_id')
     print(form_id)
     cur = db.cursor()
-    cur.execute("SELECT * FROM forms WHERE form_id = %s;", [form_id])
+    cur.execute("SELECT * FROM forms WHERE form_id = %s;", form_id)
     row_headers = [x[0] for x in cur.description]
     rv = cur.fetchall()
     json_data = []
@@ -171,29 +171,8 @@ def final_form():
 def chat():
     user_input = request.json
     
-    # sentence = user_input.user_chat
-
-    # sentence = tokenize(sentence)
-    # X = bag_of_words(sentence, words)
-    # X = X.reshape(1, X.shape[0])
-    # X = torch.from_numpy(X).to(device)
-
-    # output = model(X)
-    # _, predicted = torch.max(output, dim=1)
-
-    # tag = tags[predicted.item()]
-
-    # probs = torch.softmax(output, dim=1)
-    # prob = probs[0][predicted.item()]
-    # if prob.item() > 0.75:
-    #     for intent in intents['intents']:
-    #         if tag == intent["tag"]:
-    #             # print(f"{bot_name}: {random.choice(intent['responses'])}")
-    #             return jsonify({'aiMessage': random.choice(intent['responses'])})
-    # else:
-    #     # print(f"{bot_name}: I am unable to process the given query. Please try again")
-    #     return jsonify({'aiMessage': 'I am unable to process the given query. Please try again'})
-    return jsonify({'aiMessage': 'hello'})
+    response = get_response(user_input['user_chat'])
+    return jsonify({'aiMessage': response})
 
 if __name__ == '__main__':
     app.run(debug=True)
