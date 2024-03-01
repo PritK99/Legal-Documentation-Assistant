@@ -1,15 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Chat() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
 
   const [chats, setChats] = useState([]);
+  const chatContainerRef = useRef(null);
 
   const addChat = (message) => {
     setChats((prevChats) => [...prevChats, message]);
   };
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [chats]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +49,7 @@ function Chat() {
           return res.json();
         })
         .then((res) => {
+          
           setChats((prevChats) => {
             const updatedChats = [...prevChats];
             updatedChats[updatedChats.length - 1].ai_chat = res.aiMessage; 
@@ -59,7 +67,7 @@ function Chat() {
       <div className="">
         {open === false ? (
           <button
-            className="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 bg-black hover:bg-gray-700 m-0 cursor-pointer border-gray-200 bg-none p-0 normal-case leading-5 hover:text-gray-900 mb-6"
+            className="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 bg-black hover:bg-gray-700 m-0 cursor-pointer border-gray-200 bg-none p-0 normal-case leading-5 hover:text-gray-900 mb-6 z-40"
             type="button"
             aria-haspopup="dialog"
             aria-expanded="false"
@@ -85,7 +93,7 @@ function Chat() {
             </svg>
           </button>
         ) : (
-          <div className="fixed bottom-[calc(2rem+1.5rem)] right-0  bg-black  rounded-lg border border-[#e5e7eb] w-[440px] h-[500px] overflow-y-auto z-50">
+          <div className={`fixed bottom-[calc(2rem+1.5rem)] right-0  bg-black  rounded-lg border border-[#e5e7eb] w-[440px] h-[500px] overflow-y-auto z-50 ${open ? 'scroll-smooth' : ''}`} ref={chatContainerRef}>
             <div className="sticky top-0 z-20 bg-black py-3 px-3">
               <div className="flex justify-between items-center space-y-1.5 rounded-md px-2 py-3 bg-[#4169E1]">
                 <div className="flex gap-3 items-center ml-2">
@@ -152,7 +160,7 @@ function Chat() {
                 onSubmit={handleSubmit}
               >
                 <input
-                  className="flex h-10 w-full rounded-md border border-[#e5e7eb] px-3 py-2 text-sm placeholder-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#9ca3af] disabled:cursor-not-allowed disabled:opacity-50 text-[#030712] focus-visible:ring-offset-2"
+                  className="flex h-10 w-full rounded-md border border-[#e5e7eb] px-3 py-2 text-sm placeholder-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#9ca3af] disabled:cursor-not-allowed disabled:opacity-50 text-[#030712] focus-visible:ring-offset-2 bg-white"
                   placeholder="Type your message"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
