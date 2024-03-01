@@ -6,15 +6,12 @@
                 "Hi",
                 "Hey",
                 "How are you",
-                "Is anyone there?",
-                "Hello",
-                "Good day"
+                "Hello"
             ],
             "responses": [
                 "Hi, I am you legal assistant chatbot. How may I help you?",
                 "Hello, how can I help you?",
-                "Hi there, what can I do for you?",
-                "Hi there, how can I help?"
+                "Hey there, what can I do for you?"
             ]
         },
         {
@@ -35,8 +32,8 @@
             "patterns": [
                 "Thanks",
                 "Thank you",
-                "That's helpful",
-                "Thank's a lot!"
+                "Got it",
+                "Okay"
             ],
             "responses": [
                 "Happy to help! Is there anything else I can help you with?",
@@ -45,58 +42,126 @@
             ]
         },
         {
-            "tag": "Family Affairs",
+            "tag": "Contract Documents",
             "patterns": [
-                "divorce",
-                "guidance",
-                "child custody arrangements",
-                "alimony payments",
-                "legal requirements",
-                "spousal support",
-                "child support payments",
-                "annulment process",
-                "domestic violence issues",
-                "family court procedures",
-                "legal separation agreements",
-                "adoption process",
-                "guardianship",
-                "concept of visitation rights",
-                "Property settlement"
+                "contract agreements",
+                "business agreements",
+                "service contracts",
+                "legal obligations",
+                "formal agreements",
+                "contractual arrangements",
+                "commercial contracts",
+                "agreement",
+                "contract"
             ],
             "responses": [
-                "Please refer Family Affairs documents section"
+                "Please refer to the Contract Documents section."
             ]
         },
         {
-            "tag": "Banking and Finance",
+            "tag": "Trademark & Copyright Documents",
             "patterns": [
-                "loan agreement",
-                "lakh loan",
-                "Person",
-                "mortgage application",
-                "property",
-                "Property Address",
-                "security deposit agreement",
-                "rental property",
-                "last will and testament",
-                "assets",
-                "Guide",
-                "process",
-                "filling out",
-                "lawsuit",
-                "issuer",
-                "bounced cheque",
-                "demand letter",
-                "debtor",
-                "payment",
-                "letter",
-                "bank",
-                "refund",
-                "overdraft fees",
-                "mortgage contract"
+                "trademark registration",
+                "copyright protection",
+                "intellectual property rights",
+                "brand identity",
+                "creative works protection",
+                "copyright infringement",
+                "brand trademarks",
+                "copyright laws",
+                "intellectual property"
             ],
             "responses": [
-                "Please refer Banking & Finance Documents section"
+                "Please refer to the Trademark & Copyright Documents section."
+            ]
+        },
+        {
+            "tag": "Banking/Finance Documents",
+            "patterns": [
+                "financial regulations",
+                "banking laws",
+                "investment agreements",
+                "loan agreements",
+                "financial transactions",
+                "financial institutions",
+                "banking regulations",
+                "financial contracts",
+                "investment contracts",
+                "loan documents"
+            ],
+            "responses": [
+                "Please refer to the Banking/Finance Documents section."
+            ]
+        },
+        {
+            "tag": "Property Documents",
+            "patterns": [
+                "real estate",
+                "property ownership",
+                "land deeds",
+                "title",
+                "property transfers",
+                "land registration",
+                "property titles",
+                "real estate agreements",
+                "land documents",
+                "property contracts"
+            ],
+            "responses": [
+                "Please refer to the Property Documents section."
+            ]
+        },
+        {
+            "tag": "Bonds Documents",
+            "patterns": [
+                "bond agreements",
+                "debt instruments",
+                "bondholder rights",
+                "bond issuances",
+                "bond terms",
+                "bond offerings",
+                "debt securities",
+                "bond contracts",
+                "bondholder agreements",
+                "bond terms conditions"
+            ],
+            "responses": [
+                "Please refer to the Bonds Documents section."
+            ]
+        },
+        {
+            "tag": "Criminal Documents",
+            "patterns": [
+                "criminal laws",
+                "legal penalties",
+                "proceedings",
+                "criminal offenses",
+                "criminal charges",
+                "criminal investigations",
+                "criminal statutes",
+                "legal prosecutions",
+                "indictments",
+                "legal cases"
+            ],
+            "responses": [
+                "Please refer to the Criminal Documents section."
+            ]
+        },
+        {
+            "tag": "Divorce/Family Documents",
+            "patterns": [
+                "divorce proceedings",
+                "child custody",
+                "spousal support",
+                "family",
+                "guardianship arrangements",
+                "adoption process",
+                "family law",
+                "custody arrangements",
+                "marriage dissolution"
+            ],
+            "responses": [
+                "Please refer to the Divorce/Family Documents section."
             ]
         }
     ]
