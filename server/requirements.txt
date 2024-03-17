@@ -1,0 +1,7 @@
+flask
+Flask-Cors
+python-docx
+requests
+mysqlclient
+mammoth
+nltk

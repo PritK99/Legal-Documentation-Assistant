@@ -1,15 +1,28 @@
 # Legal-Documentation-Assistant
-## Problem Statement
+
+## Table of Contents
+
+- [Project](#legal-documentation-assistant)
+  - [Table of Contents](#table-of-contents)
+  - [About The Project](#about-the-project)
+  - [Tech Stack](#tech-stack)
+  - [Demo](#demo)
+  - [Getting started](#Getting-Started)
+  - [Screenshots of Website](#screenshots-of-website)
+  - [Contributors](#contributors)
+  - [License](#license)
+
+## About
 
 Legal documentation can be a complicated and time-consuming process, especially for individuals and small businesses who may not have access to legal resources. In addition, the language and jargon used in legal documents can be difficult for non-lawyers to understand, which can lead to errors and misunderstandings. 
 
-**Objective**: The objective of this hackathon challenge is to develop an AI-powered solution that can simplify legal documentation for individuals and small businesses in India, by automatically drafting legal documents in plain language and using easy-to-understand terms. 
+**Objective**: The objective of this project is to develop an AI-powered solution that can simplify legal documentation for individuals and small businesses in India, by automatically drafting legal documents in plain language and using easy-to-understand terms. 
 
-**Potential Features**: 
+**Features**: 
 
-1. User-friendly interface for inputting relevant information such as parties involved, terms of the agreement, and other necessary details. 
+1. User-friendly interface to input relevant information such as parties involved, terms of the agreement, and other necessary details. 
 
-2. AI-powered document generation that automatically drafts legal documents in plain language and using easy-to-understand terms. 
+2. AI-powered document generation that automatically recommends legal documents based on user query. 
 
 3. Ability to customize legal documents based on the specific needs of the user. 
 
@@ -19,17 +32,15 @@ Legal documentation can be a complicated and time-consuming process, especially 
 
 **Impact**: The proposed solution can greatly benefit individuals and small businesses in India, who often face challenges with legal documentation due to limited access to legal resources. By simplifying legal documentation, this solution can potentially save time, reduce errors, and increase access to justice. 
 
-**Data**: Participants can use publicly available legal databases and resources to train the AI model for document generation. 
+**Data**: We have made use of [LawRato](https://lawrato.com/legal-documents) for the dataset of legal documents.
 
-**Deliverables**: 
+## Demo
 
-1. A working prototype of the AI-powered legal documentation assistant, demonstrating its functionality and ease of use. 
+```
+Demo video to be added soon
+```
 
-2. A presentation outlining the features and potential impact of the solution, as well as its technical architecture and data requirements. 
-
-3. Code and documentation for the solution, along with instructions for deployment and maintenance. 
-
-## Tech stack used
+## Tech Stack
 
 - ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
@@ -41,35 +52,82 @@ Legal documentation can be a complicated and time-consuming process, especially 
 
 - ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-## Setup
+## Getting Started
 
-- First, clone the repository into your system, and enter the repository in your terminal
+### Installation
+
+Clone the project by typing the following command in your Terminal/CommandPrompt
 
 ```
 git clone https://github.com/PritK99/Legal-Documentation-Assistant.git
-cd Legal-Documentation-Assistant/
+```
+Navigate to the Legal Documentation Assistant folder
+
+```
+cd Legal-Documentation-Assistant
 ```
 
-- To start the client, run these commands
+#### Frontend
+
+Open a new terminal in root folder and navigate to the client folder
 
 ```
 cd client/src/
+```
 
+Install all the required dependencies
+
+```
 npm i
+```
 
+To run the frontend
+
+```
 npm run start
 ```
 
-- To start the server, run these commands on a new terminal, at folder `Legal-Documentation-Server/`
+Once the above command is executed, the frontend will be running at ```localhost:5000```. You can visit http://localhost:5000/ to view the website.
+
+#### Backend
+
+To create a database on render and creating a environment file, follow the given steps
+
 ```
-cd server/
-
-pip install flask cors python-docx requests MySQLdb mammoth
-
-python3 app.py
+steps to be added here soon
 ```
 
-## Screenshots of the Webpage
+Once the database is created, Open a new terminal in root folder and navigate to the server folder 
+
+```
+cd server
+```
+
+Create a virtual environment to install all the dependencies
+
+```
+python -m venv docbuddy
+```
+
+Activate the virtual environment
+
+For Windows: ```docbuddy\Scripts\activate```
+
+For Linux: ```source docbuddy/bin/activate```
+
+Install all the required dependencies
+
+```
+pip install -r requirements.txt
+```
+
+To run the backend
+
+```
+python app.py
+```
+
+## Screenshots of the Website
 
 - #### Home Page
 
@@ -104,22 +162,15 @@ python3 app.py
     ![about_page](./assets/image-5.png)
 
 ## Contributors
-
-- [Shardul Khade](https://github.com/shark-21)
-- [Mihir Rathod](https://github.com/m-g-rathod)
-- [Prit Kanadiya](https://github.com/PritK99)
 - [Devayani Chandane](https://github.com/devayani03)
 - [Kavan Gandhi](https://github.com/KGan31)
+- [Mihir Rathod](https://github.com/m-g-rathod)
+- [Prit Kanadiya](https://github.com/PritK99)
+- [Shardul Khade](https://github.com/shark-21)
 - [Vedant Nimje](https://github.com/vrnimje)
 
 ## References
+- [LawRato](https://lawrato.com/legal-documents) for the dataset of legal documents.
 
-- [LawRato](https://lawrato.com/legal-documents), for the dataset of legal documents
-- [Botpress](https://botpress.com/), for building the AI-powered chatbot
-
-
-
-
-
-
-
+## License
+[MIT License](https://opensource.org/licenses/MIT)
