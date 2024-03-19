@@ -6,6 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
   - [Tech Stack](#tech-stack)
+  - [File Structure](#file-structure)
   - [Demo](#demo)
   - [Getting started](#Getting-Started)
   - [Screenshots of Website](#screenshots-of-website)
@@ -51,6 +52,38 @@ Demo video to be added soon
 - ![flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
 - ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+
+## File Structure
+```
+👨‍💻Legal-Documentation-Assistant
+ ┣ 📂assets                            // Contains all the reference gifs, images
+ ┣ 📂client                            // Frontend        
+ ┃ ┃ ┣ 📂src                                      
+ ┃ ┃ ┃ ┣ 📂components  
+ ┃ ┃ ┃ ┣ 📄index.js
+ ┃ ┃ ┣ 📂public 
+ ┃ ┃ ┃ ┣ 📄index.html
+ ┣ 📂database                          // Database Queries
+ ┃ ┣ 📄forms.sql    
+ ┃ ┣ 📄input_ques.sql
+ ┃ ┣ 📄ques_categories.sql               
+ ┃ ┣ 📄services.sql
+ ┃ ┣ 📄form_queries.psql
+ ┣ 📂model                             // Standalone model         
+ ┃ ┣ 📄bot.py    
+ ┃ ┣ 📄chat.py                         // To chat with the standalone model
+ ┃ ┣ 📄model.py                
+ ┃ ┣ 📄train.py                        // Training
+ ┃ ┣ 📄dataset.py 
+ ┃ ┣ 📄util.py   
+ ┃ ┣ 📄trained_model.pth               // Weights File
+ ┃ ┣ 📄intents.json                    // Dataset 
+ ┣ 📂server                            // Backend 
+ ┃ ┣ 📄app.py 
+ ┃ ┣ 📄createdatabase.py  
+ ┃ ┣ 📄requirements.txt      
+ ┣ 📄README.md
+``` 
 
 ## Getting Started
 
