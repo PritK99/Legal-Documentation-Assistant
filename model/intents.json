@@ -240,6 +240,15 @@
             "responses": [
                 "Please refer to the Divorce/Family Documents section."
             ]
-        }        
+        },
+        {
+            "tag": "unknown",
+            "patterns": [
+            ],
+            "responses": [
+                "Sorry I am unable to help you with that.",
+                "I am unable to find an appropriate document for that."
+            ]
+        }       
     ]
 }
