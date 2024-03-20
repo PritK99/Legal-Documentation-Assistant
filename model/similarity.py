@@ -9,7 +9,21 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-tags = ["greeting", "goodbye", "thanks", "Contract Document", "Trademark & Copyright Documents", "Banking/Finance Documents", "Property Documents", "Bonds Documents", "Criminal Documents", "Divorce/Family Documents", "Unknown"]
+tags = ["greeting", "goodbye", "thanks", "Contract Document", "Trademark and Copyright Documents", "Banking and Finance Documents", "Property Documents", "Bonds Documents", "Criminal Documents", "Divorce and Family affairs Documents", "Unknown"]
+
+response = {
+    "greeting": "Hi, I am your legal assistant chatbot. How may I help you?", 
+    "goodbye": "See you later, thanks for consulting",
+    "thanks": "Happy to help! Is there anything else I can assist you with?",
+    "Contract Document": "Please refer to the Contract Documents section.", 
+    "Trademark and Copyright Documents": "Please refer to the Trademark & Copyright Documents section.", 
+    "Banking and Finance Documents": "Please refer to the Banking and Finance Documents section.", 
+    "Property Documents": "Please refer to the Property Documents section.", 
+    "Bonds Documents": "Please refer to the Bonds Documents section.", 
+    "Criminal Documents": "Please refer to the Criminal Documents section.", 
+    "Divorce and Family affairs Documents": "Please refer to the Divorce/Family Documents section.", 
+    "Unknown": "Sorry I am unable to help you with that request. Please consult a lawyer for complex matters.",
+}
 
 def get_document(prompt):
     """
@@ -36,18 +50,17 @@ def get_document(prompt):
     for tag in tags:
         essay_embedding = model.encode(tag, convert_to_tensor=True)
         tag_score = util.pytorch_cos_sim(prompt_embedding, essay_embedding).item()
+        # print(f"Tag: {tag} with score {tag_score}")
         
         if tag_score > similarity_score:
             similarity_score = tag_score
             best_tag = tag
     
-    reply = ""
-    for intent in intents['intents']:
-            if best_tag == intent["tag"]:
-                reply = random.choice(intent['responses'])
+    # print(f"Best tag: {best_tag} with score {similarity_score}")
+    reply = response[best_tag]
 
     return reply
 
 # Uncomment the below lines to run the standalone model
-# document = get_document("I need to rent a house in banglore")
-# print(document)
+# reply = get_document("My neighbor stole my car. I want to sue them.")
+# print(reply)

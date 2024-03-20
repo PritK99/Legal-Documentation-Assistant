@@ -13,7 +13,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
+# Importing both models
 from model.bot import get_response
+from model.similarity import get_document
 
 # Load environment variables from .env file
 load_dotenv()
@@ -171,7 +173,9 @@ def final_form():
 def chat():
     user_input = request.json
     
-    response = get_response(user_input['user_chat'])
+    # Choose one of the following models. get_response works using Bag of Words Principle while get_document works using Cosine Similarity
+    # response = get_response(user_input['user_chat'])
+    response = get_document(user_input['user_chat'])
     return jsonify({'aiMessage': response})
 
 if __name__ == '__main__':
