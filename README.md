@@ -8,12 +8,12 @@
   - [Demo](#demo)
   - [Tech Stack](#tech-stack)
   - [File Structure](#file-structure)
-  - [Getting started](#Getting-Started)
-  - [Screenshots of Website](#screenshots-of-website)
+  - [Getting started](#getting-started)
+  - [Screenshots of Website](#screenshots-of-the-website)
   - [Contributors](#contributors)
   - [License](#license)
 
-## About
+## About The Project
 
 Legal documentation can be a complicated and time-consuming process, especially for individuals and small businesses who may not have access to legal resources. In addition, the language and jargon used in legal documents can be difficult for non-lawyers to understand, which can lead to errors and misunderstandings. 
 
@@ -35,9 +35,7 @@ Legal documentation can be a complicated and time-consuming process, especially 
 
 ## Demo
 
-```
-Demo video to be added soon
-```
+https://github.com/PritK99/Legal-Documentation-Assistant/assets/103848930/023f19a9-dea2-458b-ae53-6f6c7f36d74f
 
 ## Tech Stack
 
@@ -49,7 +47,7 @@ Demo video to be added soon
 
 - ![flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
-- ![mysql](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+- ![pssql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## File Structure
 ```
@@ -112,7 +110,7 @@ cd Legal-Documentation-Assistant
 Open a new terminal in root folder and navigate to the client folder
 
 ```
-cd client/src/
+cd client/
 ```
 
 Install all the required dependencies
@@ -124,7 +122,7 @@ npm i
 To run the frontend
 
 ```
-npm run start
+npm start
 ```
 
 Once the above command is executed, the frontend will be running at ```localhost:3000```. You can visit http://localhost:3000/ to view the website.
