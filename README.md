@@ -120,7 +120,7 @@ To run the frontend
 npm run start
 ```
 
-Once the above command is executed, the frontend will be running at ```localhost:5000```. You can visit http://localhost:5000/ to view the website.
+Once the above command is executed, the frontend will be running at ```localhost:3000```. You can visit http://localhost:3000/ to view the website.
 
 #### Backend
 
@@ -159,6 +159,7 @@ A new empty PostgreSQL database service will then be created. You can view all t
 > **Note** <br>
 > The PostgreSQL database service will remain free on render only upto 3 months.
 
+
 Next, create a .env file containing the credentials of your database. Sample .env file looks like:
 ```
 DATABASE_HOST=your_database_host
@@ -167,6 +168,11 @@ DATABASE_USER=your_database_username
 PASSWORD=your_database_password
 DATABASE_PORT=your_database_port
 ```
+
+> **Note** <br>
+> ```DATABASE_HOST``` in ```.env``` should be of form ```<Hostname>-a.<region>-postgres.render.com```. For example, if the region of database is ```Oregon (US West)```, then hostname can be ```<Hostname>-a.oregon-postgres.render.com```
+
+
 You can get all this database credentials by visiting the PostgreSQL database service you created on your render dashboard.
 
 Once the .env file is setup, next run the createdatabase.py script using the following command in the terminal:
