@@ -29,8 +29,6 @@ Legal documentation can be a complicated and time-consuming process, especially 
 
 4. Integration with existing legal resources and databases to ensure accuracy and completeness of the legal documents. 
 
-5. Option for users to seek legal advice from an expert in case of complex legal issues. 
-
 **Impact**: The proposed solution can greatly benefit individuals and small businesses in India, who often face challenges with legal documentation due to limited access to legal resources. By simplifying legal documentation, this solution can potentially save time, reduce errors, and increase access to justice. 
 
 **Data**: We have made use of [LawRato](https://lawrato.com/legal-documents) for the dataset of legal documents.
@@ -58,11 +56,16 @@ Demo video to be added soon
 👨‍💻Legal-Documentation-Assistant
  ┣ 📂assets                            // Contains all the reference gifs, images
  ┣ 📂client                            // Frontend        
- ┃ ┃ ┣ 📂src                                      
- ┃ ┃ ┃ ┣ 📂components  
- ┃ ┃ ┃ ┣ 📄index.js
- ┃ ┃ ┣ 📂public 
- ┃ ┃ ┃ ┣ 📄index.html
+ ┃ ┣ 📂src                                      
+ ┃ ┃ ┣ 📂components  
+ ┃ ┃ ┃ ┣ 📄Chat.jsx
+ ┃ ┃ ┣ 📄about.jsx
+ ┃ ┃ ┣ 📄Faq.jsx
+ ┃ ┃ ┣ 📄Home.jsx
+ ┃ ┃ ┣ 📄InputForm.jsx
+ ┃ ┃ ┣ 📄LoginPage.jsx
+ ┃ ┣ 📂public 
+ ┃ ┃ ┣ 📄index.html
  ┣ 📂database                          // Database Queries
  ┃ ┣ 📄forms.sql    
  ┃ ┣ 📄input_ques.sql
@@ -70,15 +73,19 @@ Demo video to be added soon
  ┃ ┣ 📄services.sql
  ┃ ┣ 📄form_queries.psql
  ┣ 📂model                             // Standalone model         
+ ┃ ┣ 📄similarity.py                   // Based on Cosine Similarity
  ┃ ┣ 📄bot.py    
  ┃ ┣ 📄chat.py                         // To chat with the standalone model
- ┃ ┣ 📄model.py                
- ┃ ┣ 📄train.py                        // Training
+ ┃ ┣ 📄model.py                        // Based on Bag of Words
+ ┃ ┣ 📄train.py                        
  ┃ ┣ 📄dataset.py 
  ┃ ┣ 📄util.py   
- ┃ ┣ 📄trained_model.pth               // Weights File
+ ┃ ┣ 📄trained_model.pth
  ┃ ┣ 📄intents.json                    // Dataset 
  ┣ 📂server                            // Backend 
+ ┃ ┣ 📂docs  
+ ┃ ┃ ┣ 📄localfile.docx
+ ┃ ┃ ┣ 📄Output2.docx
  ┃ ┣ 📄app.py 
  ┃ ┣ 📄createdatabase.py  
  ┃ ┣ 📄requirements.txt      
