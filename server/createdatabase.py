@@ -9,7 +9,7 @@ conn = psycopg2.connect(database=os.getenv('DATABASE_NAME'), user=os.getenv('DAT
                         password=os.getenv('PASSWORD'), host=os.getenv('DATABASE_HOST'), port=os.getenv('DATABASE_PORT'))
   
 # create a cursor
-cur = conn.cursor()
+cur = conn.cursor()  
   
 cur.execute(
     '''CREATE TABLE IF NOT EXISTS services (
