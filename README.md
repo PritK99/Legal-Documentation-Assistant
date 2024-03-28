@@ -178,7 +178,7 @@ DATABASE_PORT=your_database_port
 
 > **Note** <br>
 > ```DATABASE_HOST``` in ```.env``` should be of form ```<Hostname>.<region>-postgres.render.com```. For example, if the region of database is ```Oregon (US West)```, then hostname can be ```<Hostname>.oregon-postgres.render.com```
-
+  
 
 You can get all this database credentials by visiting the PostgreSQL database service you created on your render dashboard.
 
