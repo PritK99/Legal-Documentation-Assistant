@@ -7,3 +7,4 @@ mammoth
 nltk
 sentence-transformers
 python-dotenv
+psycopg2

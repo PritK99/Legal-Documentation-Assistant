@@ -115,7 +115,14 @@ def final_content():
     cur.close()
     print(json_data[0]["form_link"])
     response = requests.get(json_data[0]["form_link"])
-    with open('./docs/localfile.docx', 'wb') as f:
+    directory = './docs'
+    
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    file_path = './docs/localfile.docx'
+
+    with open(file_path, 'wb') as f:
         f.write(response.content)
         
     doc = Document('./docs/localfile.docx')

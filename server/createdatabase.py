@@ -15,7 +15,7 @@ cur.execute(
     '''CREATE TABLE IF NOT EXISTS services (
     service_id INT PRIMARY KEY,
     service_name VARCHAR(50),
-    desciption VARCHAR(500),
+    description VARCHAR(500),
     img_link VARCHAR(300)
 );''')
 
