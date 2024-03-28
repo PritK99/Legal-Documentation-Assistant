@@ -2,6 +2,8 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # create a connection with the database
 conn = psycopg2.connect(database=os.getenv('DATABASE_NAME'), user=os.getenv('DATABASE_USER'),
                         password=os.getenv('PASSWORD'), host=os.getenv('DATABASE_HOST'), port=os.getenv('DATABASE_PORT'))
@@ -18,7 +20,7 @@ cur.execute(
 );''')
 
 cur.execute(
-    '''INSERT INTO services (service_id, service_name, desciption, img_link) VALUES 
+    '''INSERT INTO services (service_id, service_name, description, img_link) VALUES 
 (1, 'Contract Documents', 'Legal contracts serve as the backbone of countless business and personal transactions, providing a formal framework for defining rights, obligations, and responsibilities between parties involved. ', 'https://res.cloudinary.com/dgi53xxbd/image/upload/v1694875757/sih_legal_docs/contract_img_ync08t.jpg'), 
 (2, 'Trademark & Copyright Documents', 'A trademark is a word or a visual symbol used by a business to differentiate its goods or services from those of other businesses that offer similar goods or services. A copyright is a right given to the creators of literary, musical, dramatic, artistic works, and the producers of cinematograph films and sound recordings. ', 'https://res.cloudinary.com/dgi53xxbd/image/upload/v1694875997/sih_legal_docs/tm_copyright_img_hd7o0e.jpg'), 
 (3, 'Banking/Finance Documents', 'In India, the banking and finance sector operates under a comprehensive legal framework that governs various aspects of financial services, institutions, and transactions. These laws are essential to ensure the stability, transparency, and integrity of the financial system.', 'https://res.cloudinary.com/dgi53xxbd/image/upload/v1694876340/sih_legal_docs/banking_img_lcll8x.jpg'), 
@@ -139,3 +141,4 @@ conn.commit()
 # close the cursor and connection
 cur.close()
 conn.close()
+print("Database created successfully!!")
