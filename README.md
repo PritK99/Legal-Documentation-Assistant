@@ -124,6 +124,30 @@ Once the above command is executed, the frontend will be running at ```localhost
 
 #### Backend
 
+Open a new terminal in root folder and navigate to the server folder 
+
+```
+cd server
+```
+
+Create a virtual environment to install all the dependencies
+
+```
+python -m venv docbuddy
+```
+
+Activate the virtual environment
+
+For Windows: ```docbuddy\Scripts\activate```
+
+For Linux: ```source docbuddy/bin/activate```
+
+Install all the required dependencies
+
+```
+pip install -r requirements.txt
+```
+
 To create a database on render and creating a environment file, follow the given steps
 
 1. Visit the [website](https://render.com/) and create an account or sign in. 
@@ -154,30 +178,6 @@ Running the createdatabase.py script will create the entire database for you.
 
 > **Note** <br>
 > If you want to create the PostgreSQL database on your local device instead of hosting on render, you are free to do so. But, you need to change the .env file accordingly.
-
-Once the database is created, Open a new terminal in root folder and navigate to the server folder 
-
-```
-cd server
-```
-
-Create a virtual environment to install all the dependencies
-
-```
-python -m venv docbuddy
-```
-
-Activate the virtual environment
-
-For Windows: ```docbuddy\Scripts\activate```
-
-For Linux: ```source docbuddy/bin/activate```
-
-Install all the required dependencies
-
-```
-pip install -r requirements.txt
-```
 
 To run the backend
 
