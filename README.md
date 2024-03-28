@@ -126,9 +126,34 @@ Once the above command is executed, the frontend will be running at ```localhost
 
 To create a database on render and creating a environment file, follow the given steps
 
+1. Visit the [website](https://render.com/) and create an account or sign in. 
+2. Next, choose a new service as PostgreSQL to create a new database service. 
+3. Give an appropriate name to the database and the instance name.
+4. Select <b>Free</b> option in the Instance type and hit <b>Create Database</b> button at the bottom.
+
+A new empty PostgreSQL database service will then be created. You can view all the services on your Render Dashboard.
+> **Note** <br>
+> The PostgreSQL database service will remain free on render only upto 3 months.
+
+Next, create a .env file containing the credentials of your database. Sample .env file looks like:
 ```
-steps to be added here soon
+DATABASE_HOST=your_database_host
+DATABASE_NAME=your_database_name
+DATABASE_USER=your_database_username
+PASSWORD=your_database_password
+DATABASE_PORT=your_database_port
 ```
+You can get all this database credentials by visiting the PostgreSQL database service you created on your render dashboard.
+
+Once the .env file is setup, next run the createdatabase.py script using the following command in the terminal:
+```
+python server/createdatabase.py  
+```
+
+Running the createdatabase.py script will create the entire database for you.
+
+> **Note** <br>
+> If you want to create the PostgreSQL database on your local device instead of hosting on render, you are free to do so. But, you need to change the .env file accordingly.
 
 Once the database is created, Open a new terminal in root folder and navigate to the server folder 
 
