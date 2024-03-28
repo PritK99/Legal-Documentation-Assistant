@@ -6,3 +6,4 @@ mysqlclient
 mammoth
 nltk
 sentence-transformers
+python-dotenv
