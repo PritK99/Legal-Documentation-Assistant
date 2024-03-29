@@ -47,7 +47,7 @@ https://github.com/PritK99/Legal-Documentation-Assistant/assets/103848930/023f19
 
 - ![flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
-- ![pssql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+- ![psql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ## File Structure
 ```
@@ -64,12 +64,6 @@ https://github.com/PritK99/Legal-Documentation-Assistant/assets/103848930/023f19
  ┃ ┃ ┣ 📄LoginPage.jsx
  ┃ ┣ 📂public 
  ┃ ┃ ┣ 📄index.html
- ┣ 📂database                          // Database Queries
- ┃ ┣ 📄forms.sql    
- ┃ ┣ 📄input_ques.sql
- ┃ ┣ 📄ques_categories.sql               
- ┃ ┣ 📄services.sql
- ┃ ┣ 📄form_queries.psql
  ┣ 📂model                             // Standalone model         
  ┃ ┣ 📄similarity.py                   // Based on Cosine Similarity
  ┃ ┣ 📄bot.py    
@@ -220,7 +214,7 @@ python app.py
 
 - #### Chatbot 
 
-    ![chatbot](./assets/image-6.png)
+    ![chatbot](./assets/image-8.png)
 
 - #### FAQ page
 
