@@ -36,9 +36,11 @@ Legal documentation can be a complicated and time-consuming process, especially 
 ## Demo
 
 🎥 Video Walkthrough
+
 Check out a live demonstration of the project in action: https://github.com/PritK99/Legal-Documentation-Assistant/assets/103848930/023f19a9-dea2-458b-ae53-6f6c7f36d74f
 
 🌐 Live Website
+
 Explore the deployed website here: https://legal-documentation-assistant-frontend.onrender.com
 
 ## Tech Stack
