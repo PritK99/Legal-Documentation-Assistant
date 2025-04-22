@@ -11,6 +11,7 @@
   - [Getting started](#getting-started)
   - [Screenshots of Website](#screenshots-of-the-website)
   - [Contributors](#contributors)
+  - [Star History](#star-history)
   - [License](#license)
 
 ## About The Project
@@ -41,7 +42,11 @@ Check out a live demonstration of the project in action: https://github.com/Prit
 
 🌐 Live Website
 
-Explore the deployed website here: https://legal-documentation-assistant-frontend.onrender.com
+Explore the deployed website here: <a href="https://legal-documentation-assistant-frontend.onrender.com">https://legal-documentation-assistant-frontend.onrender.com
+</a>
+
+> **Note** <br>
+> The server may take a few minutes to launch, as we are using a free service provided by Render. Please note that this service is only available for 30 days, so access might be unavailable if the free period has expired.
 
 ## Tech Stack
 
@@ -237,6 +242,10 @@ python app.py
 - [Prit Kanadiya](https://github.com/PritK99)
 - [Shardul Khade](https://github.com/shark-21)
 - [Vedant Nimje](https://github.com/vrnimje)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=PritK99/Legal-Documentation-Assistant&type=Date)](https://www.star-history.com/#PritK99/Legal-Documentation-Assistant&Date)
 
 ## References
 - [LawRato](https://lawrato.com/legal-documents) for the dataset of legal documents.
