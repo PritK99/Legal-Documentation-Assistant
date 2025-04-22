@@ -11,7 +11,7 @@
   - [Getting started](#getting-started)
   - [Screenshots of Website](#screenshots-of-the-website)
   - [Contributors](#contributors)
-  - [Star History](#star-history)
+  - [References](#references)
   - [License](#license)
 
 ## About The Project
@@ -242,10 +242,6 @@ python app.py
 - [Prit Kanadiya](https://github.com/PritK99)
 - [Shardul Khade](https://github.com/shark-21)
 - [Vedant Nimje](https://github.com/vrnimje)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=PritK99/Legal-Documentation-Assistant&type=Date)](https://www.star-history.com/#PritK99/Legal-Documentation-Assistant&Date)
 
 ## References
 - [LawRato](https://lawrato.com/legal-documents) for the dataset of legal documents.
